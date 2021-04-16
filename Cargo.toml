@@ -1,0 +1,14 @@
+[package]
+name = "planet-rs"
+version = "0.1.0"
+authors = ["Akshay Gupta <kitallis@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+chrono = "0.4"
+rss = "1.0"
+futures = "0.3"
+toml = "0.4.2"
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+reqwest = { version = "0.11", features = ["json"] }
