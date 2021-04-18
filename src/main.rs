@@ -36,6 +36,9 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
+use slug::slugify;
+
+const ENTRY_EXT: &str = "md";
 
 #[derive(Debug, Clone)]
 struct Entry {
@@ -59,12 +62,10 @@ impl Feed {
                 author: author.clone(),
             };
 
-            match entry_metadata.validate() {
-                Some(_) => {
-                    entries.push(entry_metadata)
-                }
-
-                None => println!("Skipping this entry...")
+            if entry_metadata.validate() {
+                entries.push(entry_metadata)
+            } else {
+                println!("Skipping this entry...")
             }
         }
 
@@ -81,6 +82,7 @@ impl Entry {
     // layout: post
     // ---
     fn preamble(&self) -> String {
+        // TODO: can we use a multiline string or an actual template
         format!("---\ntitle: {}\nauthor: {}\ncreated_at: {}\n---", self.entry.title().unwrap(), self.default_author(), self.entry.pub_date().unwrap())
     }
 
@@ -88,12 +90,19 @@ impl Entry {
         format!("{}\n{}", self.preamble(), self.default_content())
     }
 
-    fn name(&self) -> String {
-        format!("out/{}-{}.md", self.entry.pub_date().unwrap(), self.entry.title().unwrap())
+    fn name(&self) -> PathBuf {
+        let time = DateTime::parse_from_rfc2822(self.entry.pub_date().unwrap()).unwrap().format("%Y-%m-%d");
+        let directory = "out";
+        let title = slugify(self.entry.title().unwrap());
+        let file_name = format!("{}-{}", time, title);
+
+        Path::new(directory)
+            .join(&file_name)
+            .with_extension(ENTRY_EXT)
     }
 
-    fn validate(&self) -> Option<bool> {
-        Some(true)
+    fn validate(&self) -> bool {
+        true
     }
 
     fn default_author(&self) -> String {
@@ -111,16 +120,11 @@ impl Entry {
         }
     }
 
-    fn created_at(&self) -> String {
-
-    }
-
     fn write(&self) {
-        let file_name = &self.name();
-        let path = Path::new(file_name);
-        let display = path.display();
+        let file_path = &self.name();
+        let display = file_path.display();
 
-        let mut file = match File::create(&path) {
+        let mut file = match File::create(&file_path) {
             Ok(file) => file,
             Err(why) => panic!("Couldn't create {}: {}", display, why),
         };
@@ -167,10 +171,12 @@ fn main() {
     let args = Cli::from_args();
     let config_contents = fs::read_to_string(args.config_file).expect("Couldn't read the config!");
     let package_info: Config = toml::from_str(&config_contents).unwrap();
+
     println!("Spitting posts to: {}", package_info.setting.out_dir);
+    println!("{}", package_info.authors.len());
 
     for author in package_info.authors.iter() {
-        let author = author.clone();
+        let author = author.clone(); // TODO: see if we can avoid cloning here
         println!("Fetching for {} from {}", author.name, author.feed);
 
         match fetch_feed(&author.feed) {
