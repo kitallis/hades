@@ -24,6 +24,7 @@ mod config;
 mod feed;
 mod entry;
 mod fetch;
+mod file;
 
 use config::Config;
 use feed::Feed;

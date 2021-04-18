@@ -2,9 +2,8 @@ use rss::Item;
 use chrono::DateTime;
 use std::path::{Path, PathBuf};
 use crate::config::{Author, Setting};
+use crate::file::write;
 use slug::slugify;
-use std::fs::File;
-use std::io::prelude::*;
 
 const ENTRY_EXT: &str = "md";
 
@@ -64,17 +63,6 @@ impl Entry {
     }
 
     pub fn write(&self) {
-        let file_path = &self.name();
-        let display = file_path.display();
-
-        let mut file = match File::create(&file_path) {
-            Ok(file) => file,
-            Err(why) => panic!("Couldn't create {}: {}", display, why),
-        };
-
-        match file.write_all(self.body().as_bytes()) {
-            Ok(_) => println!("Successfully wrote to: {}", display),
-            Err(why) => panic!("Couldn't write to {}: {}", display, why),
-        }
+        write(&self.name(), &self.body().as_bytes())
     }
 }

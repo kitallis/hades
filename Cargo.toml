@@ -1,5 +1,5 @@
 [package]
-name = "planet-rs"
+name = "hades"
 version = "0.1.0"
 authors = ["Akshay Gupta <kitallis@gmail.com>"]
 edition = "2018"

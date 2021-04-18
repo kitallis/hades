@@ -356,6 +356,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "hades"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "futures",
+ "reqwest",
+ "rss",
+ "serde",
+ "slug",
+ "structopt",
+ "tokio",
+ "toml",
+]
+
+[[package]]
 name = "hashbrown"
 version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -740,21 +755,6 @@ name = "pkg-config"
 version = "0.3.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3831453b3449ceb48b6d9c7ad7c96d5ea673e9b470a1dc578c2ce6521230884c"
-
-[[package]]
-name = "planet-rs"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "futures",
- "reqwest",
- "rss",
- "serde",
- "slug",
- "structopt",
- "tokio",
- "toml",
-]
 
 [[package]]
 name = "ppv-lite86"
