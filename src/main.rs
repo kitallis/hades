@@ -22,7 +22,11 @@
 #![allow(unused_imports)]
 #![allow(dead_code)]
 
+use std::env;
+use std::fs;
 use std::error::Error;
+use std::path::PathBuf;
+use structopt::StructOpt;
 use rss::{Channel, Item};
 use chrono::prelude::*;
 use futures::future::Future;
@@ -77,7 +81,7 @@ impl Entry {
     // layout: post
     // ---
     fn preamble(&self) -> String {
-        format!("---\ntitle: {}\n---", self.entry.title().unwrap().to_owned())
+        format!("---\ntitle: {}\nauthor: {}\ncreated_at: {}\n---", self.entry.title().unwrap(), self.default_author(), self.entry.pub_date().unwrap())
     }
 
     fn body(&self) -> String {
@@ -85,7 +89,7 @@ impl Entry {
     }
 
     fn name(&self) -> String {
-        format!("out/{}-{}.md", Utc::now(), self.entry.title().unwrap().to_owned())
+        format!("out/{}-{}.md", self.entry.pub_date().unwrap(), self.entry.title().unwrap())
     }
 
     fn validate(&self) -> Option<bool> {
@@ -105,6 +109,10 @@ impl Entry {
             (None, Some(description)) => description.to_owned(),
             _ => String::new()
         }
+    }
+
+    fn created_at(&self) -> String {
+
     }
 
     fn write(&self) {
@@ -139,28 +147,26 @@ struct Config {
 #[derive(Deserialize)]
 struct Setting {
     out_dir: String,
-    front_matter: String,
+    front_matter_ext: String,
 }
 
-// take a blog
-// read an entry
-// spit markdown post
+impl Default for Setting {
+    fn default() -> Setting {
+        Setting { out_dir: "articles".to_owned(), front_matter_ext: "toml".to_owned() }
+    }
+}
+
+#[derive(StructOpt, Debug)]
+#[structopt(name = "basic")]
+struct Cli {
+    #[structopt(short, long, parse(from_os_str))]
+    config_file: std::path::PathBuf,
+}
+
 fn main() {
-    let toml_content = r#"
-          [setting]
-          out_dir = "articles"
-          front_matter = "yaml"
-
-          [[authors]]
-          name = "Steven Deobald"
-          feed = "https://www.deobald.ca/index.xml"
-
-          [[authors]]
-          name = "Nivedita Priyadarshini"
-          feed = "https://medium.com/@nid90/feed"
-          "#;
-
-    let package_info: Config = toml::from_str(toml_content).unwrap();
+    let args = Cli::from_args();
+    let config_contents = fs::read_to_string(args.config_file).expect("Couldn't read the config!");
+    let package_info: Config = toml::from_str(&config_contents).unwrap();
     println!("Spitting posts to: {}", package_info.setting.out_dir);
 
     for author in package_info.authors.iter() {
@@ -170,8 +176,7 @@ fn main() {
         match fetch_feed(&author.feed) {
             Ok(channel) => {
                 let feed = Feed { channel };
-                let entries = feed.parse(author);
-                for entry in entries {
+                for entry in feed.parse(author) {
                     println!("Writing entry...");
                     entry.write()
                 }
