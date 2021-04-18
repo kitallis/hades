@@ -21,14 +21,14 @@
 #![allow(dead_code)]
 
 mod config;
-mod feed;
 mod entry;
+mod feed;
 mod fetch;
 mod file;
 
+use crate::config::{Author, Setting};
 use config::Config;
 use feed::Feed;
-use crate::config::{Setting, Author};
 
 fn main() {
     let config = Config::new();
@@ -43,6 +43,6 @@ fn generate(author: Author, setting: Setting) {
     println!("Fetching for {} from {}", author.name, author.feed);
     match Feed::new(author, setting) {
         Some(feed) => feed.write(),
-        None => println!("Could not fetch feed.")
+        None => println!("Could not fetch feed."),
     };
 }

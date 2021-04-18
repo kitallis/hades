@@ -1,6 +1,6 @@
-use std::path::Path;
 use std::fs::File;
 use std::io::prelude::*;
+use std::path::Path;
 
 pub fn write(path: &Path, contents: &[u8]) {
     let display = path.display();

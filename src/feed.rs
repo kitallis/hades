@@ -14,7 +14,11 @@ impl Feed {
     pub fn new(author: Author, setting: Setting) -> Option<Self> {
         if author.enabled {
             match fetch_feed(&author.feed) {
-                Ok(channel) => Some(Self { channel, author, setting }),
+                Ok(channel) => Some(Self {
+                    channel,
+                    author,
+                    setting,
+                }),
                 Err(_) => None,
             }
         } else {
@@ -23,9 +27,7 @@ impl Feed {
     }
 
     pub fn write(&self) {
-        self.parse()
-            .iter()
-            .for_each(|entry| entry.write())
+        self.parse().iter().for_each(|entry| entry.write())
     }
 
     fn parse(&self) -> Vec<Entry> {

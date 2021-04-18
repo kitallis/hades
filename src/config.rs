@@ -1,5 +1,5 @@
-use std::fs;
 use serde::Deserialize;
+use std::fs;
 use structopt::StructOpt;
 
 #[derive(StructOpt, Debug)]
@@ -41,9 +41,9 @@ fn default_front_matter_ext() -> String {
 impl Config {
     pub fn new() -> Self {
         let args = Cli::from_args();
-        let config_contents = fs::read_to_string(args.config_file).expect("Couldn't read the config!");
+        let config_contents =
+            fs::read_to_string(args.config_file).expect("Couldn't read the config!");
 
         toml::from_str(&config_contents).unwrap()
     }
 }
-

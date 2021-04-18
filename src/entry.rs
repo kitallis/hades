@@ -1,9 +1,9 @@
-use rss::Item;
-use chrono::DateTime;
-use std::path::{Path, PathBuf};
 use crate::config::{Author, Setting};
 use crate::file::write;
+use chrono::DateTime;
+use rss::Item;
 use slug::slugify;
+use std::path::{Path, PathBuf};
 
 const ENTRY_EXT: &str = "md";
 
@@ -16,7 +16,8 @@ pub struct Entry {
 
 impl Entry {
     pub fn preamble(&self) -> String {
-        format!("\
+        format!(
+            "\
         ---\
         \n\
         title: {}\
@@ -25,7 +26,11 @@ impl Entry {
         \n\
         created_at: {}\
         \n\
-        ---", self.entry.title().unwrap(), self.default_author(), self.entry.pub_date().unwrap())
+        ---",
+            self.entry.title().unwrap(),
+            self.default_author(),
+            self.entry.pub_date().unwrap()
+        )
     }
 
     pub fn body(&self) -> String {
@@ -33,7 +38,9 @@ impl Entry {
     }
 
     pub fn name(&self) -> PathBuf {
-        let time = DateTime::parse_from_rfc2822(self.entry.pub_date().unwrap()).unwrap().format("%Y-%m-%d");
+        let time = DateTime::parse_from_rfc2822(self.entry.pub_date().unwrap())
+            .unwrap()
+            .format("%Y-%m-%d");
         let directory = self.setting.out_dir.to_string();
         let title = slugify(self.entry.title().unwrap());
         let file_name = format!("{}-{}", time, title);
@@ -50,7 +57,7 @@ impl Entry {
     pub fn default_author(&self) -> String {
         match self.entry.author() {
             Some(author) => author.to_owned(),
-            None => self.author.name.to_owned()
+            None => self.author.name.to_owned(),
         }
     }
 
@@ -58,7 +65,7 @@ impl Entry {
         match (self.entry.content(), self.entry.description()) {
             (Some(content), None) => content.to_owned(),
             (None, Some(description)) => description.to_owned(),
-            _ => String::new()
+            _ => String::new(),
         }
     }
 
