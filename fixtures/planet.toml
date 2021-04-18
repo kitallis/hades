@@ -1,6 +1,6 @@
 [setting]
 out_dir = "articles"
-front_matter_ext = "toml"
+front_matter_ext = "yaml"
 
 [[authors]]
 feed = "https://clojure.org/feed.xml"
