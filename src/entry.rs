@@ -35,11 +35,11 @@ impl Entry {
 
     pub fn name(&self) -> PathBuf {
         let time = DateTime::parse_from_rfc2822(self.entry.pub_date().unwrap()).unwrap().format("%Y-%m-%d");
-        let directory = "out";
+        let directory = self.setting.out_dir.to_string();
         let title = slugify(self.entry.title().unwrap());
         let file_name = format!("{}-{}", time, title);
 
-        Path::new(directory)
+        Path::new(&directory)
             .join(&file_name)
             .with_extension(ENTRY_EXT)
     }

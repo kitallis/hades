@@ -11,12 +11,10 @@ pub struct Feed {
 }
 
 impl Feed {
-    pub fn new(author: Author, setting: Setting) -> Self {
-        println!("Fetching for {} from {}", author.name, author.feed);
-
+    pub fn new(author: Author, setting: Setting) -> Option<Self>  {
         match fetch_feed(&author.feed) {
-            Ok(channel) => Self { channel, author, setting },
-            Err(_) => panic!("Failed to fetch for author: {}", author.name),
+            Ok(channel) => Some(Self { channel, author, setting }),
+            Err(_) => None,
         }
     }
 
@@ -24,7 +22,6 @@ impl Feed {
         self.parse()
             .iter()
             .for_each(|entry| {
-                println!("Writing entry...");
                 entry.write()
             })
     }

@@ -37,7 +37,11 @@ fn main() {
     for author in config.authors.iter() {
         let author = author.clone(); // TODO: see if we can avoid cloning here
         let setting = config.setting.clone(); // TODO: see if we can avoid cloning here
+
         println!("Fetching for {} from {}", author.name, author.feed);
-        Feed::new(author, setting).write();
+        match Feed::new(author, setting) {
+            Some(feed) => feed.write(),
+            None => println!("Could not fetch feed.")
+        };
     }
 }
