@@ -5,6 +5,7 @@ front_matter_ext = "yaml"
 [[authors]]
 feed = "https://clojure.org/feed.xml"
 name = "Clojure.org"
+enabled = false
 
 [[authors]]
 feed = "https://clojure.wladyka.eu/posts/index.xml"

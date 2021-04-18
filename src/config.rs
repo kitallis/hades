@@ -18,6 +18,7 @@ pub struct Config {
 #[derive(Deserialize, Clone, Debug)]
 pub struct Setting {
     pub out_dir: String,
+    #[serde(default = "default_front_matter_ext")]
     pub front_matter_ext: String,
 }
 
@@ -25,18 +26,16 @@ pub struct Setting {
 pub struct Author {
     pub name: String,
     pub feed: String,
+    #[serde(default = "default_enabled_state")]
+    pub enabled: bool,
 }
 
-const DEFAULT_OUT_DIR: &str = "articles";
-const DEFAULT_FRONT_MATTER_EXT: &str = "yaml";
+fn default_enabled_state() -> bool {
+    true
+}
 
-impl Default for Setting {
-    fn default() -> Setting {
-        Setting {
-            out_dir: DEFAULT_OUT_DIR.to_string(),
-            front_matter_ext: DEFAULT_FRONT_MATTER_EXT.to_string(),
-        }
-    }
+fn default_front_matter_ext() -> String {
+    "yaml".to_string()
 }
 
 impl Config {

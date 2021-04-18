@@ -12,16 +12,20 @@ pub struct Feed {
 
 impl Feed {
     pub fn new(author: Author, setting: Setting) -> Option<Self> {
-        match fetch_feed(&author.feed) {
-            Ok(channel) => Some(Self { channel, author, setting }),
-            Err(_) => None,
+        if author.enabled {
+            match fetch_feed(&author.feed) {
+                Ok(channel) => Some(Self { channel, author, setting }),
+                Err(_) => None,
+            }
+        } else {
+            None
         }
     }
 
     pub fn write(&self) {
         self.parse()
             .iter()
-            .for_each(|entry| { entry.write() })
+            .for_each(|entry| entry.write())
     }
 
     fn parse(&self) -> Vec<Entry> {
