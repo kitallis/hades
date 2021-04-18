@@ -28,21 +28,21 @@ mod file;
 
 use config::Config;
 use feed::Feed;
+use crate::config::{Setting, Author};
 
 fn main() {
     let config = Config::new();
-    let setting = config.setting.clone();
+    println!("Spitting posts to: {}", &config.setting.out_dir);
+    config
+        .authors
+        .iter()
+        .for_each(|author| generate(author.clone(), config.setting.clone()))
+}
 
-    println!("Spitting posts to: {}", setting.out_dir);
-
-    for author in config.authors.iter() {
-        let author = author.clone(); // TODO: see if we can avoid cloning here
-        let setting = config.setting.clone(); // TODO: see if we can avoid cloning here
-
-        println!("Fetching for {} from {}", author.name, author.feed);
-        match Feed::new(author, setting) {
-            Some(feed) => feed.write(),
-            None => println!("Could not fetch feed.")
-        };
-    }
+fn generate(author: Author, setting: Setting) {
+    println!("Fetching for {} from {}", author.name, author.feed);
+    match Feed::new(author, setting) {
+        Some(feed) => feed.write(),
+        None => println!("Could not fetch feed.")
+    };
 }
