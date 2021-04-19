@@ -16,7 +16,7 @@ pub struct Cli {
 #[derive(Deserialize, Debug)]
 pub struct Config {
     pub setting: Setting,
-    pub authors: HashSet<Author>,
+    pub authors: Vec<Author>,
 }
 
 #[derive(Deserialize, Clone, Debug)]
@@ -50,12 +50,6 @@ impl PartialEq for Author {
     }
 }
 
-impl Hash for Author {
-    fn hash<H: Hasher>(&self, hasher: &mut H) {
-        self.feed.hash(hasher);
-    }
-}
-
 fn default_skip_state() -> bool {
     false
 }
@@ -76,18 +70,27 @@ impl Config {
 
         let mut config: Config = toml::from_str(&config_contents).unwrap();
         config.pre_populate_author_tags();
+        config.dedup_authors();
         config
     }
 
     // Copy over tags from the base setting only if author tags are unspecified
     fn pre_populate_author_tags(&mut self) {
-        let default_tags = self.setting.tags.clone();
-        if default_tags.is_empty() { return; }
+        if self.setting.tags.is_empty() { return; }
 
         for author in self.authors.iter_mut() {
+            let default_tags = self.setting.tags.clone();
+
             if author.tags.is_empty() {
                 author.set_tags(default_tags)
             }
         }
     }
+
+    // It was painful to manage a HashSet<Author> under the Config struct
+    // While trying to update tags under Author, we need iter_mut() in pre_populate_author_tags()
+    // This makes using HashSet<Author> not possible, since HashSet does not implement iter_mut()
+    // One way to solve this is to have different structs for serialization and run-time
+    // For simplicity, I've instead chosen a vector and de-duped manually upfront
+    fn dedup_authors(&mut self) { self.authors.dedup() }
 }

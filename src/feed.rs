@@ -33,11 +33,13 @@ impl Feed {
             .items()
             .iter()
             .fold(Vec::new(), |mut entries, item| {
-                let entry_metadata =
-                    Entry::new(item.clone(), self.author.clone(), self.setting.clone())
-                        .expect("Skipping this entry...");
+                match Entry::new(item.clone(), self.author.clone(), self.setting.clone()) {
+                    Some(entry) => {
+                        entries.push(entry);
+                    }
+                    None => println!("Skipping...")
+                }
 
-                entries.push(entry_metadata);
                 entries
             })
     }
