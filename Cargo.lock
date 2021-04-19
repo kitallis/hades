@@ -368,6 +368,7 @@ dependencies = [
  "structopt",
  "tokio",
  "toml",
+ "url",
 ]
 
 [[package]]
@@ -1296,6 +1297,7 @@ dependencies = [
  "idna",
  "matches",
  "percent-encoding",
+ "serde",
 ]
 
 [[package]]

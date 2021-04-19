@@ -32,14 +32,16 @@ use feed::Feed;
 
 fn main() {
     let config = Config::new();
+
     println!("Spitting posts to: {}", &config.setting.out_dir);
+    println!("{}", config.authors.len());
     config
         .authors
         .iter()
-        .for_each(|author| generate(author.clone(), config.setting.clone()))
+        .for_each(|author| generate_feed(author.clone(), config.setting.clone()))
 }
 
-fn generate(author: Author, setting: Setting) {
+fn generate_feed(author: Author, setting: Setting) {
     println!("Fetching for {} from {}", author.name, author.feed);
     match Feed::new(author, setting) {
         Some(feed) => feed.write(),

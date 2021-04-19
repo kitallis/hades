@@ -1,15 +1,17 @@
 [setting]
 out_dir = "articles"
 front_matter_ext = "yaml"
+tags = ["clojure", "rust"]
+
+[[authors]]
+feed = "https://medium.com/@nid90/feed"
+name = "Nivedita Priyadarshini"
+tags = ["sourdough"]
 
 [[authors]]
 feed = "https://clojure.org/feed.xml"
 name = "Clojure.org"
-enabled = false
-
-[[authors]]
-feed = "https://clojure.wladyka.eu/posts/index.xml"
-name = "Krzysztof Wladyka"
+skip = true
 
 [[authors]]
 feed = "http://feeds.feedburner.com/ClojureAndMe"

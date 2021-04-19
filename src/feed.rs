@@ -12,17 +12,15 @@ pub struct Feed {
 
 impl Feed {
     pub fn new(author: Author, setting: Setting) -> Option<Self> {
-        if author.enabled {
-            match fetch_feed(&author.feed) {
-                Ok(channel) => Some(Self {
-                    channel,
-                    author,
-                    setting,
-                }),
-                Err(_) => None,
-            }
-        } else {
-            None
+        if author.skip { return None; }
+
+        match fetch_feed(&author.feed) {
+            Ok(channel) => Some(Self {
+                channel,
+                author,
+                setting,
+            }),
+            Err(_) => None,
         }
     }
 
@@ -35,18 +33,11 @@ impl Feed {
             .items()
             .iter()
             .fold(Vec::new(), |mut entries, item| {
-                let entry_metadata = Entry {
-                    entry: item.clone(),
-                    author: self.author.clone(),
-                    setting: self.setting.clone(),
-                };
+                let entry_metadata =
+                    Entry::new(item.clone(), self.author.clone(), self.setting.clone())
+                        .expect("Skipping this entry...");
 
-                if entry_metadata.validate() {
-                    entries.push(entry_metadata)
-                } else {
-                    println!("Skipping this entry...")
-                }
-
+                entries.push(entry_metadata);
                 entries
             })
     }

@@ -10,6 +10,7 @@ rss = "1.0"
 futures = "0.3"
 toml = "0.4.2"
 tokio = { version = "1.0", features = ["full"] }
+url = { version = "2.2.1", features = ["serde"] }
 serde = { version = "1.0", features = ["derive"] }
 reqwest = { version = "0.11", features = ["json"] }
 structopt = "0.3.17"

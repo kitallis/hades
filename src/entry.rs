@@ -4,6 +4,9 @@ use chrono::DateTime;
 use rss::Item;
 use slug::slugify;
 use std::path::{Path, PathBuf};
+use futures::{FutureExt, StreamExt};
+use std::collections::HashSet;
+use std::iter::FromIterator;
 
 const ENTRY_EXT: &str = "md";
 
@@ -15,17 +18,24 @@ pub struct Entry {
 }
 
 impl Entry {
+    pub fn new(entry: Item, author: Author, setting: Setting) -> Option<Self> {
+        let entry = Self {
+            entry,
+            author,
+            setting,
+        };
+
+        if entry.skip() { return None; }
+        Some(entry)
+    }
+
     pub fn preamble(&self) -> String {
         format!(
             "\
-        ---\
-        \n\
-        title: {}\
-        \n\
-        author: {}\
-        \n\
-        created_at: {}\
-        \n\
+        ---\n\
+        title: {}\n\
+        author: {}\n\
+        created_at: {}\n\
         ---",
             self.entry.title().unwrap(),
             self.default_author(),
@@ -50,8 +60,18 @@ impl Entry {
             .with_extension(ENTRY_EXT)
     }
 
-    pub fn validate(&self) -> bool {
-        true
+    pub fn skip(&self) -> bool {
+        let category_names = self.category_names();
+        if category_names.is_empty() {
+            return true;
+        }
+
+        let allowed_tags: HashSet<_> = self.author.tags.intersection(&category_names).collect();
+        if allowed_tags.is_empty() {
+            return true;
+        }
+
+        false
     }
 
     pub fn default_author(&self) -> String {
@@ -67,6 +87,10 @@ impl Entry {
             (None, Some(description)) => description.to_owned(),
             _ => String::new(),
         }
+    }
+
+    fn category_names(&self) -> HashSet<String> {
+        HashSet::from_iter(self.entry.categories().iter().map(|category| category.name.to_string()))
     }
 
     pub fn write(&self) {
