@@ -4,10 +4,9 @@ use crate::preamble::Preamble;
 use chrono::DateTime;
 use rss::Item;
 use slug::slugify;
-use std::path::{Path, PathBuf};
-use futures::{FutureExt, StreamExt};
 use std::collections::HashSet;
 use std::iter::FromIterator;
+use std::path::{Path, PathBuf};
 
 const ENTRY_EXT: &str = "md";
 
@@ -26,11 +25,18 @@ impl Entry {
             setting,
         };
 
-        if entry.skip() { return None; }
-        Some(entry)
+        if entry.validate() {
+            return Some(entry);
+        }
+
+        None
     }
 
-    pub fn preamble(&self) -> String {
+    pub fn write(&self) {
+        write(&self.name(), &self.body().as_bytes())
+    }
+
+    fn preamble(&self) -> String {
         let preamble = Preamble {
             title: self.entry.title().unwrap().to_string(),
             author: self.default_author(),
@@ -40,15 +46,15 @@ impl Entry {
         match self.setting.preamble_ext.as_str() {
             "yaml" => preamble.yaml(),
             "toml" => preamble.toml(),
-            _ => unreachable!()
+            _ => unreachable!(),
         }
     }
 
-    pub fn body(&self) -> String {
+    fn body(&self) -> String {
         format!("{}\n{}", self.preamble(), self.default_content())
     }
 
-    pub fn name(&self) -> PathBuf {
+    fn name(&self) -> PathBuf {
         let time = DateTime::parse_from_rfc2822(self.entry.pub_date().unwrap())
             .unwrap()
             .format("%Y-%m-%d");
@@ -61,28 +67,14 @@ impl Entry {
             .with_extension(ENTRY_EXT)
     }
 
-    pub fn skip(&self) -> bool {
-        let category_names = self.category_names();
-        if category_names.is_empty() {
-            return true;
-        }
-
-        let allowed_tags: HashSet<_> = self.author.tags.intersection(&category_names).collect();
-        if allowed_tags.is_empty() {
-            return true;
-        }
-
-        false
-    }
-
-    pub fn default_author(&self) -> String {
+    fn default_author(&self) -> String {
         match self.entry.author() {
             Some(author) => author.to_owned(),
             None => self.author.name.to_owned(),
         }
     }
 
-    pub fn default_content(&self) -> String {
+    fn default_content(&self) -> String {
         match (self.entry.content(), self.entry.description()) {
             (Some(content), None) => content.to_owned(),
             (None, Some(description)) => description.to_owned(),
@@ -90,11 +82,53 @@ impl Entry {
         }
     }
 
-    fn category_names(&self) -> HashSet<String> {
-        HashSet::from_iter(self.entry.categories().iter().map(|category| category.name.to_string()))
+    fn default_pub_date(&self) -> Option<String> {
+        let pub_date = self.entry.pub_date()?;
+
+        match DateTime::parse_from_rfc2822(pub_date) {
+            Ok(time) => Some(time.format("%Y-%m-%d").to_string()),
+            Err(_e) => match DateTime::parse_from_rfc3339(pub_date) {
+                Ok(time) => Some(time.format("%Y-%m-%d").to_string()),
+                Err(_e) => None,
+            },
+        }
     }
 
-    pub fn write(&self) {
-        write(&self.name(), &self.body().as_bytes())
+    fn validate(&self) -> bool {
+        self.are_tags_valid() && self.is_pub_date_present()
+    }
+
+    fn are_tags_valid(&self) -> bool {
+        // if there are no tags in config, assume the entry is valid
+        if self.author.tags.is_empty() {
+            return true;
+        }
+
+        // if tags in config are specified, but there are no tags in the entry, don't fetch
+        let category_names = self.category_names();
+        if category_names.is_empty() {
+            return false;
+        }
+
+        // if there are tags in config and in the entry, only fetch if they intersect
+        let allowed_tags: HashSet<_> = self.author.tags.intersection(&category_names).collect();
+        if allowed_tags.is_empty() {
+            return false;
+        }
+
+        true
+    }
+
+    fn is_pub_date_present(&self) -> bool {
+        self.default_pub_date().is_some()
+    }
+
+    fn category_names(&self) -> HashSet<String> {
+        HashSet::from_iter(
+            self.entry
+                .categories()
+                .iter()
+                .map(|category| category.name.to_string()),
+        )
     }
 }

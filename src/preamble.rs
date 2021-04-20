@@ -11,14 +11,14 @@ impl Preamble {
     pub fn toml(&self) -> String {
         match toml::to_string(self) {
             Ok(string) => format!("+++\n{}+++", string),
-            Err(_) => String::new()
+            Err(_) => String::new(),
         }
     }
 
     pub fn yaml(&self) -> String {
         match serde_yaml::to_string(self) {
             Ok(string) => format!("{}---", string),
-            Err(_) => String::new()
+            Err(_) => String::new(),
         }
     }
 }

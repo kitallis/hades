@@ -11,10 +11,12 @@ pub struct Feed {
 }
 
 impl Feed {
-    pub fn new(author: Author, setting: Setting) -> Option<Self> {
-        if author.skip { return None; }
+    pub async fn new(author: Author, setting: Setting) -> Option<Self> {
+        if author.skip {
+            return None;
+        }
 
-        match fetch_feed(&author.feed) {
+        match fetch_feed(&author.feed).await {
             Ok(channel) => Some(Self {
                 channel,
                 author,
@@ -37,7 +39,7 @@ impl Feed {
                     Some(entry) => {
                         entries.push(entry);
                     }
-                    None => println!("Skipping...")
+                    None => println!("Skipping..."),
                 }
 
                 entries

@@ -1,10 +1,9 @@
 use serde::Deserialize;
+use std::collections::HashSet;
 use std::fs;
 use structopt::StructOpt;
-use std::collections::HashSet;
-use std::cell::Cell;
-use url::{Url, ParseError};
-use std::hash::{Hash, Hasher};
+
+use url::Url;
 
 #[derive(StructOpt, Debug)]
 #[structopt(name = "basic")]
@@ -26,6 +25,8 @@ pub struct Setting {
     pub preamble_ext: String,
     #[serde(default = "default_tags")]
     pub tags: HashSet<String>,
+    #[serde(default = "default_workers")]
+    pub workers: i8,
 }
 
 #[derive(Deserialize, Clone, Debug, Eq)]
@@ -62,6 +63,10 @@ fn default_preamble_ext() -> String {
     "yaml".to_string()
 }
 
+fn default_workers() -> i8 {
+    10
+}
+
 impl Config {
     pub fn new() -> Self {
         let args = Cli::from_args();
@@ -76,7 +81,9 @@ impl Config {
 
     // Copy over tags from the base setting only if author tags are unspecified
     fn pre_populate_author_tags(&mut self) {
-        if self.setting.tags.is_empty() { return; }
+        if self.setting.tags.is_empty() {
+            return;
+        }
 
         for author in self.authors.iter_mut() {
             let default_tags = self.setting.tags.clone();
@@ -92,5 +99,7 @@ impl Config {
     // This makes using HashSet<Author> not possible, since HashSet does not implement iter_mut()
     // One way to solve this is to have different structs for serialization and run-time
     // For simplicity, I've instead chosen a Vec<Author> and de-duped it manually, upfront
-    fn dedup_authors(&mut self) { self.authors.dedup() }
+    fn dedup_authors(&mut self) {
+        self.authors.dedup()
+    }
 }
