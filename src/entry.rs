@@ -1,5 +1,6 @@
 use crate::config::{Author, Setting};
 use crate::file::write;
+use crate::preamble::Preamble;
 use chrono::DateTime;
 use rss::Item;
 use slug::slugify;
@@ -30,17 +31,17 @@ impl Entry {
     }
 
     pub fn preamble(&self) -> String {
-        format!(
-            "\
-        ---\n\
-        title: {}\n\
-        author: {}\n\
-        created_at: {}\n\
-        ---",
-            self.entry.title().unwrap(),
-            self.default_author(),
-            self.entry.pub_date().unwrap()
-        )
+        let preamble = Preamble {
+            title: self.entry.title().unwrap().to_string(),
+            author: self.default_author(),
+            created_at: self.entry.pub_date().unwrap().to_string(),
+        };
+
+        match self.setting.preamble_ext.as_str() {
+            "yaml" => preamble.yaml(),
+            "toml" => preamble.toml(),
+            _ => unreachable!()
+        }
     }
 
     pub fn body(&self) -> String {

@@ -13,7 +13,7 @@ pub struct Cli {
     config_file: std::path::PathBuf,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Clone, Debug)]
 pub struct Config {
     pub setting: Setting,
     pub authors: Vec<Author>,
@@ -22,8 +22,8 @@ pub struct Config {
 #[derive(Deserialize, Clone, Debug)]
 pub struct Setting {
     pub out_dir: String,
-    #[serde(default = "default_front_matter_ext")]
-    pub front_matter_ext: String,
+    #[serde(default = "default_preamble_ext")]
+    pub preamble_ext: String,
     #[serde(default = "default_tags")]
     pub tags: HashSet<String>,
 }
@@ -58,7 +58,7 @@ fn default_tags() -> HashSet<String> {
     HashSet::new()
 }
 
-fn default_front_matter_ext() -> String {
+fn default_preamble_ext() -> String {
     "yaml".to_string()
 }
 
@@ -91,6 +91,6 @@ impl Config {
     // While trying to update tags under Author, we need iter_mut() in pre_populate_author_tags()
     // This makes using HashSet<Author> not possible, since HashSet does not implement iter_mut()
     // One way to solve this is to have different structs for serialization and run-time
-    // For simplicity, I've instead chosen a vector and de-duped manually upfront
+    // For simplicity, I've instead chosen a Vec<Author> and de-duped it manually, upfront
     fn dedup_authors(&mut self) { self.authors.dedup() }
 }

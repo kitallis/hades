@@ -1,6 +1,6 @@
 [setting]
 out_dir = "articles"
-front_matter_ext = "yaml"
+preamble_ext = "yaml"
 tags = ["clojure", "rust"]
 
 [[authors]]
