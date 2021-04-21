@@ -5,7 +5,7 @@ use rss::Channel;
 use std::error::Error;
 use url::Url;
 
-#[tokio::main(worker_threads = 20)]
+#[tokio::main(worker_threads = 30)]
 pub async fn generate_feeds(config: Config) {
     futures::stream::iter(
         config
@@ -16,8 +16,8 @@ pub async fn generate_feeds(config: Config) {
     ).buffer_unordered(config.setting.workers as usize)
         .map(|feed| match feed {
             Ok(Some(feed)) => feed.write(),
-            Ok(None) => println!("Could not fetch feed."),
-            Err(_) => println!("Feed attempt failed."),
+            Ok(None) => println!("Failed to fetch feed."),
+            Err(_) => println!("Unknown error."),
         })
         .collect::<Vec<_>>()
         .await;

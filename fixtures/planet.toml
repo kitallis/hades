@@ -1,7 +1,7 @@
 [setting]
 out_dir = "articles"
 preamble_ext = "yaml"
-workers = 20
+workers = 25
 tags = []
 
 [[authors]]
@@ -555,3 +555,685 @@ feed = "http://zackmdavis.net/blog/tag/rust/feed/"
 [[authors]]
 name = "Zimon Dai"
 feed = "https://daiheitan.github.io/blog/atom.xml"
+
+[[authors]]
+feed = "https://medium.com/@nid90/feed"
+name = "Nivedita Priyadarshini"
+tags = ["sourdough"]
+
+[[authors]]
+feed = "https://clojure.org/feed.xml"
+name = "Clojure.org"
+skip = true
+
+[[authors]]
+feed = "http://feeds.feedburner.com/ClojureAndMe"
+name = "Christophe Grand"
+
+[[authors]]
+feed = "http://clojure-lab.tumblr.com/rss"
+name = "Clojure lab"
+
+[[authors]]
+feed = "http://clojure.blogspot.com/feeds/posts/default"
+name = "Rich Hickey"
+
+[[authors]]
+feed = "https://carper.ca/index.xml"
+name = "Brian Carper"
+
+[[authors]]
+feed = "http://travis-whitton.blogspot.com/feeds/posts/default/-/clojure"
+name = "Travis Whitton"
+
+[[authors]]
+feed = "https://data-sorcery.org/feed/"
+name = "Incanter: Data Sorcery with Clojure"
+
+[[authors]]
+feed = "http://feeds2.feedburner.com/StuartSierra"
+name = "Stuart Sierra"
+
+[[authors]]
+feed = "http://technomancy.us/feed/atom.xml"
+name = "Phil Hagelberg"
+
+[[authors]]
+feed = "http://blog.fogus.me/feed/"
+name = "Michael Fogus"
+
+[[authors]]
+feed = "https://s-expressions.com/tag/clojure/feed/"
+name = "Amit Rathore"
+
+[[authors]]
+feed = "http://bitumenframework.blogspot.com/feeds/posts/default"
+name = "Shantanu Kumar"
+
+[[authors]]
+feed = "http://charsequence.blogspot.com/feeds/posts/default"
+name = "Shantanu Kumar"
+
+[[authors]]
+feed = "http://timothypratley.blogspot.com/feeds/posts/default"
+name = "Timothy Pratley"
+
+[[authors]]
+feed = "https://nakkaya.com/rss-feed"
+name = "Nurullah Akkaya"
+
+[[authors]]
+feed = "http://blog.mired.org/feeds/posts/default/-/clojure"
+name = "Mike Meyer"
+
+[[authors]]
+feed = "http://blog.n01se.net/?cat=14&feed=rss2&author=3"
+name = "Searching for Signal"
+
+[[authors]]
+feed = "https://clojurestudydc.wordpress.com/feed/"
+name = "Clojure Study Group DC"
+
+[[authors]]
+feed = "https://ericlavigne.wordpress.com/feed/"
+name = "Eric Lavigne"
+
+[[authors]]
+feed = "http://feeds.feedburner.com/w01fe"
+name = "Jason Wolfe"
+
+[[authors]]
+feed = "https://cemerick.com/category/clojure/feed/"
+name = "Chas Emerick"
+
+[[authors]]
+feed = "https://mostlylazy.com/feed/"
+name = "Mostly λazy…a Clojure podcast"
+
+[[authors]]
+feed = "http://whollyweirdwyrd.blogspot.com/feeds/posts/default/-/clojure"
+name = "Nicolas Buduroi"
+
+[[authors]]
+feed = "http://feeds.feedburner.com/disclojure"
+name = "Toni Batchelli"
+
+[[authors]]
+feed = "https://vimeo.com/channels/fulldisclojure/videos/rss"
+name = "Sean Devlin (vimeo)"
+
+[[authors]]
+feed = "http://ianp.org/categories/clojure/atom.xml"
+name = "Ian Phillips"
+
+[[authors]]
+feed = "https://zef.me/feed"
+name = "Zef Hemel"
+
+[[authors]]
+feed = "http://dialectical-computing.de/blog/clojure.xml"
+name = "Kototama"
+
+[[authors]]
+feed = "https://kotka.de/blog/index.rss"
+name = "Meikel Brandmeyer"
+
+[[authors]]
+feed = "http://alexott.blogspot.com/feeds/posts/default/-/clojure"
+name = "Alex Ott"
+
+[[authors]]
+feed = "http://paul.stadig.name/feeds/posts/default/-/clojure"
+name = "Paul Stadig"
+
+[[authors]]
+feed = "http://netzhansa.blogspot.com/feeds/posts/default/-/clojure"
+name = "Hans Hübner"
+
+[[authors]]
+feed = "http://writingcoding.blogspot.com/feeds/posts/default/-/clojure"
+name = "Eric Rochester"
+
+[[authors]]
+feed = "http://programming-puzzler.blogspot.com/feeds/posts/default"
+name = "Thoughts on Programming"
+
+[[authors]]
+feed = "http://www.michaelharrison.ws/weblog/category/clojure/feed/"
+name = "Michael Harrison"
+
+[[authors]]
+feed = "https://items.sjbach.com/feed"
+name = "Stephen Bach"
+
+[[authors]]
+feed = "http://technomancy.us/feed/atom.xml"
+name = "Phil Hagelberg"
+
+[[authors]]
+feed = "https://lispcast.com/feed/"
+name = "LispCast"
+
+[[authors]]
+feed = "http://tohono.blogspot.com/feeds/posts/default/-/Clojure"
+name = "Tom Hicks"
+
+[[authors]]
+feed = "https://citizen428.net/blog/categories/clojure/atom.xml"
+name = "Michael Kohl"
+
+[[authors]]
+feed = "http://www.paullegato.com/blog/tag/clojure/feed/"
+name = "Paul Legato"
+
+[[authors]]
+feed = "http://feeds.feedburner.com/wq-clojure"
+name = "Lee Hinman"
+
+[[authors]]
+feed = "https://mischneider.net/?cat=4&feed=rss2"
+name = "Michael Schneider"
+
+[[authors]]
+feed = "http://davidrupp.blogspot.com/feeds/posts/default/-/clojure"
+name = "David Rupp"
+
+[[authors]]
+feed = "http://hugoduncan.org/tags/clojure/index.xml"
+name = "Hugo Duncan"
+
+[[authors]]
+feed = "http://blog.danieljanus.pl/atom.xml"
+name = "Daniel Janus"
+
+[[authors]]
+feed = "http://www.viksit.com/?s=clojure&feed=rss2"
+name = "Viksit Gaur"
+
+[[authors]]
+feed = "http://blog.markwatson.com/feeds/posts/default/-/Clojure"
+name = "Mark Watson"
+
+[[authors]]
+feed = "https://clojure.livejournal.com/data/atom"
+name = "Clojure@LJ"
+
+[[authors]]
+feed = "http://feeds.feedburner.com/thoughtsfromtheredplanet?format=xml"
+name = "Nathan Marz"
+
+[[authors]]
+feed = "http://feeds.feedburner.com/RuminationsOfAProgrammer"
+name = "Debasish Ghosh"
+
+[[authors]]
+feed = "http://blog.jayfields.feeds/com/posts/default/-/clojure"
+name = "Jay Fields"
+
+[[authors]]
+feed = "http://ethanfast.com/atom.xml"
+name = "Ethan Fast"
+
+[[authors]]
+feed = "http://mmcgrana.github.io/atom.xml"
+name = "Mark McGranaghan"
+
+[[authors]]
+feed = "https://medium.com/feed/@ztellman"
+name = "Zach Tellman"
+
+[[authors]]
+feed = "http://arohner.blogspot.com/feeds/posts/default/-/clojure"
+name = "Allen Rohner"
+
+[[authors]]
+feed = "https://clivetong.wordpress.com/feed/"
+name = "Clive Tong"
+
+[[authors]]
+feed = "http://codemonkeyism.com/feed/"
+name = "Stephan Schmidt"
+
+[[authors]]
+feed = "http://www.gregosuri.com/feed.xml"
+name = "Greg Osuri"
+
+[[authors]]
+feed = "https://feed.infoq.com/?token=u3wbDvo4lRit0lRZ5R0mBZXQR13FuTlA"
+name = "Clojure at InfoQ"
+
+[[authors]]
+feed = "http://blog.licenser.net/atom.xml"
+name = "Lice!"
+
+[[authors]]
+feed = "http://www.hackers-with-attitude.com/feeds/posts/default"
+name = "Stefan Richter"
+
+[[authors]]
+feed = "http://mark.reid.name/blog/atom.xml"
+name = "Mark Reid"
+
+[[authors]]
+feed = "http://www.deepbluelambda.org/index.rss"
+name = "Deep Blue Lambda"
+
+[[authors]]
+feed = "http://feeds.feedblitz.com/atomicspin"
+name = "Atomic Spin"
+
+[[authors]]
+feed = "https://www.innoq.com/blog/st/atom.xml"
+name = "Stefan Tilkov"
+
+[[authors]]
+feed = "http://feeds.feedburner.com/prodevtips/LVkG"
+name = "Henrik Sarvell"
+
+[[authors]]
+feed = "http://nklein.com/feed/"
+name = "Patrick Stein"
+
+[[authors]]
+feed = "https://lispjobs.wordpress.com/category/clojure/feed/"
+name = "Clojure Jobs"
+
+[[authors]]
+feed = "http://weakreference.blogspot.com/feeds/posts/default/-/clojure"
+name = "The Weak Reference"
+
+[[authors]]
+feed = "http://sids.in/blog/feed/"
+name = "Siddhartha Reddy"
+
+[[authors]]
+feed = "http://blog.mitechki.net/feeds/posts/default/-/clojure"
+name = "Dmitriy Kropivnitskiy"
+
+[[authors]]
+feed = "https://www.petekeen.net/index.xml"
+name = "Pete Keen"
+
+[[authors]]
+feed = "http://pramode.net/clojure/feed/atom.xml"
+name = "Pramode C.E"
+
+[[authors]]
+feed = "https://jng.imagine27.com/index.php/feed"
+name = "Imagine27"
+
+[[authors]]
+feed = "https://orthogonal.me/category/clojure/feed/"
+name = "Glen Stampoultzis"
+
+[[authors]]
+feed = "https://toinfinity.wordpress.com/category/coding/clojure/feed/"
+name = "Jeff Gortatowsky"
+
+[[authors]]
+feed = "https://zeekat.nl/news/tag/clojure/index.rss"
+name = "Zeekat.nl news for clojure"
+
+[[authors]]
+feed = "http://puredanger.github.io/tech.puredanger.com/?cat=133&feed=rss2"
+name = "Alex Miller"
+
+[[authors]]
+feed = "http://carpathia.blogspot.com/feeds/posts/default"
+name = "Edgar Gonçalves"
+
+[[authors]]
+feed = "http://www.chadbraunduin.com/feeds/posts/default"
+name = "Chad Braun-Duin"
+
+[[authors]]
+feed = "http://asymmetrical-view.com/atom.xml"
+name = "Kyle Burton"
+
+[[authors]]
+feed = "http://wmfarr.blogspot.com/feeds/posts/default"
+name = "Will Farr"
+
+[[authors]]
+feed = "http://codemeself.blogspot.com/feeds/posts/default/-/clojure"
+name = "Hubert Iwaniuk"
+
+[[authors]]
+feed = "http://www.ccri.com/feed/"
+name = "CCRi"
+
+[[authors]]
+feed = "http://epistemologicalengineering.blogspot.com/feeds/posts/default"
+name = "Epistemological Engineering"
+
+[[authors]]
+feed = "http://www.exampler.com/blog/feed/index.html"
+name = "Exploration Through Example"
+
+[[authors]]
+feed = "http://read-eval-puke.blogspot.com/feeds/posts/default"
+name = "Read-Eval-Puke"
+
+[[authors]]
+feed = "https://devender.me/tag/clojure/feed/"
+name = "Devender Gollapally"
+
+[[authors]]
+feed = "http://feeds.dzone.com/java"
+name = "Javalobby"
+
+[[authors]]
+feed = "http://www.dalnefre.com/wp/tag/clojure/feed/"
+name = "Dale Schumacher"
+
+[[authors]]
+feed = "https://blog.magpiebrain.com/category/development/languages-frameworks/clojure-languages-frameworks-development/feed/"
+name = "Sam Newman"
+
+[[authors]]
+feed = "http://jondotcomdotorg.net/tag/clojure/feed/"
+name = "Jon Bristow"
+
+[[authors]]
+feed = "http://saaientist.blogspot.com/feeds/posts/default/-/clojure"
+name = "Saaien Tist"
+
+[[authors]]
+feed = "https://corfield.org/atom.xml"
+name = "An Architect's View"
+
+[[authors]]
+feed = "https://www.taoeffect.com/blog/feed/"
+name = "Greg Slepak"
+
+[[authors]]
+feed = "http://david-mcneil.com/rss"
+name = "David McNeil"
+
+[[authors]]
+feed = "https://revolucionlibrary.wordpress.com/tag/clojure/feed/"
+name = "Željko Ziriković"
+
+[[authors]]
+feed = "http://swannodette.github.io/atom.xml"
+name = "David Nolen"
+
+[[authors]]
+feed = "http://michaeldrogalis.github.io/feed.xml"
+name = "Michael Drogalis"
+
+[[authors]]
+feed = "http://blog.rguha.net/?tag=clojure&feed=rss2"
+name = "Rajarshi Guha"
+
+[[authors]]
+feed = "http://feeds2.feedburner.com/ZenAndTheArtOfRubyProgramming"
+name = "Antonio Cangiano"
+
+[[authors]]
+feed = "http://squirrel.pl/blog/tag/clojure/feed/"
+name = "Konrad Garus"
+
+[[authors]]
+feed = "http://jeroenvloothuis.blogspot.com/feeds/posts/default/-/clojure"
+name = "Jeroen Vloothuis"
+
+[[authors]]
+feed = "https://blog.rubylearning.com/feed"
+name = "RubyLearning Blog"
+
+[[authors]]
+feed = "https://twoguysarguing.wordpress.com/category/clojure/feed/"
+name = "Two Guys Arguing"
+
+[[authors]]
+feed = "http://community.ative.dk/blogs/ative/rss.aspx?Tags=clojure&AndTags=1"
+name = "Ative at Work"
+
+[[authors]]
+feed = "https://dpritchett.net/index.xml"
+name = "Daniel J. Pritchett"
+
+[[authors]]
+feed = "http://fulldisclojure.blogspot.com/feeds/posts/default"
+name = "Sean Devlin"
+
+[[authors]]
+feed = "https://metaljoe.wordpress.com/category/clojure/feed/"
+name = "John's Coding Reflections"
+
+[[authors]]
+feed = "http://feeds.feedburner.com/fatvat"
+name = "Jeff Foster"
+
+[[authors]]
+feed = "http://blog.remvee.net/rss.xml"
+name = "Remco van't Veer"
+
+[[authors]]
+feed = "http://alvaro-videla.com/atom.xml"
+name = "Alvaro Videla"
+
+[[authors]]
+feed = "http://www.learningclojure.com/feeds/posts/default"
+name = "Learning Clojure"
+
+[[authors]]
+feed = "https://jukkaz.wordpress.com/tag/clojure/feed/"
+name = "Jukka Zitting"
+
+[[authors]]
+feed = "https://antoniogarrote.wordpress.com/feed/"
+name = "opus artificem probat"
+
+[[authors]]
+feed = "https://drcabana.org/rss/index.html"
+name = "David Cabana"
+
+[[authors]]
+feed = "https://otfrom.wordpress.com/tag/clojure/feed/"
+name = "Bruce Durling"
+
+[[authors]]
+feed = "http://aria42.com/feed.xml"
+name = "Aria Haghighi"
+
+[[authors]]
+feed = "http://slyrus.github.io/atom.xml"
+name = "Cyrus Harmon"
+
+[[authors]]
+feed = "https://maurits.wordpress.com/category/clojure/feed/"
+name = "Maurits Rijk"
+
+[[authors]]
+feed = "https://jkkramer.wordpress.com/category/clojure/feed/"
+name = "Justin Kramer"
+
+[[authors]]
+feed = "http://sbtourist.blogspot.com/feeds/posts/default/-/clojure"
+name = "Sergio Bossa"
+
+[[authors]]
+feed = "http://sigusr2.net/atom.xml"
+name = "Andrew Gwozdziewycz"
+
+[[authors]]
+feed = "https://clojuredocs.wordpress.com/category/clojure/feed/"
+name = "ClojureDocs"
+
+[[authors]]
+feed = "https://kylecordes.com/tag/clojure/feed"
+name = "Kyle Cordes"
+
+[[authors]]
+feed = "https://clojurecljub.wordpress.com/feed/"
+name = "St. Louis Clojure Discussion Group"
+
+[[authors]]
+feed = "http://blog.samibadawi.com/feeds/posts/default/-/Clojure"
+name = "Sami Badawi"
+
+[[authors]]
+feed = "http://ilyasterin.com/blog/tag/clojure/feed"
+name = "Ilya Sterin"
+
+[[authors]]
+feed = "http://pepijndevos.nl/feed.xml"
+name = "Pepijn de Vos"
+
+[[authors]]
+feed = "http://gearon.blogspot.com/feeds/posts/default"
+name = "Paul Gearon"
+
+[[authors]]
+feed = "http://www.brool.com/index.xml"
+name = "Tim Lopez"
+
+[[authors]]
+feed = "http://blog.isaachodes.io/feed.xml"
+name = "Isaac Hodes"
+
+[[authors]]
+feed = "http://bad-concurrency.blogspot.com/feeds/posts/default"
+name = "Michael Barker"
+
+[[authors]]
+feed = "https://vitalyper.wordpress.com/feed/"
+name = "Vitaly Peressada"
+
+[[authors]]
+feed = "http://szamitogepesnyelveszet.blogspot.com/feeds/posts/default/-/Clojure"
+name = "Zoltan Varju"
+
+[[authors]]
+feed = "http://feeds.threebrothers.org/threebrothers/brendan"
+name = "Brendan Ribera"
+
+[[authors]]
+feed = "https://8thlight.com/blog/feed/atom.xml"
+name = "8thlight Inc."
+
+[[authors]]
+feed = "http://blog.twonegatives.com/tagged/clojure/rss"
+name = "Two Negatives Blog"
+
+[[authors]]
+feed = "https://chopmode.wordpress.com/category/clojure/feed/"
+name = "Jacob Poulsgaard Tjørnholm"
+
+[[authors]]
+feed = "http://clojurewise.blogspot.com/feeds/posts/default"
+name = "Miki Tebeka"
+
+[[authors]]
+feed = "https://medium.com/feed/@jaceklaskowski"
+name = "Jacek Laskowski"
+
+[[authors]]
+feed = "https://www.brainonfire.net/blog/feed/"
+name = "Tim McCormack"
+
+[[authors]]
+feed = "http://steve.vinoski.net/blog/category/clojure/feed/"
+name = "Steve Vinoski"
+
+[[authors]]
+feed = "http://blog.factual.com/feed"
+name = "Factual dev blog"
+
+[[authors]]
+feed = "https://willwhim.wordpress.com/category/clojure/feed/"
+name = "Will Fitzgerald"
+
+[[authors]]
+feed = "https://experimentalworks.net/feed.xml"
+name = "David Soria Parra"
+
+[[authors]]
+feed = "http://vijaykiran.com/feed/"
+name = "Vijay Kiran"
+
+[[authors]]
+feed = "http://justinhj.github.io/feed.xml"
+name = "Justin Heyes-Jones"
+
+[[authors]]
+feed = "https://brehaut.net/feeds/everything"
+name = "Andrew Brehaut"
+
+[[authors]]
+feed = "http://michakurt.blogspot.com/feeds/posts/default/-/clojure"
+name = "Michael Krause"
+
+[[authors]]
+feed = "http://jasonaeschliman.blogspot.com/feeds/posts/default/-/clojure"
+name = "Jason Aeschliman"
+
+[[authors]]
+feed = "http://jon.is.emotionull.com/rss"
+name = "Jon Romero"
+
+[[authors]]
+feed = "https://blog.raek.se/atom-feed.xml"
+name = "Rasmus Svensson"
+
+[[authors]]
+feed = "http://blog.carsoncheng.ca/feeds/posts/default/-/Clojure"
+name = "Carson Cheng"
+
+[[authors]]
+feed = "http://kuriqoo.blogspot.com/feeds/posts/default/-/clojure"
+name = "Christophe Verré"
+
+[[authors]]
+feed = "http://www.adrianmouat.com/bit-bucket/feed/atom/"
+name = "Adrian Mouat"
+
+[[authors]]
+feed = "http://randomcomputation.blogspot.com/feeds/posts/default"
+name = "random computation"
+
+[[authors]]
+feed = "https://alfredodinapoli.wordpress.com/tag/clojure/feed/"
+name = "Alfredo Di Napoli"
+
+[[authors]]
+feed = "https://functionaljobs.com/jobs/search/?q=clojure&format=rss"
+name = "Functional Jobs"
+
+[[authors]]
+feed = "http://www.cataclysmicmutation.com/atom.xml"
+name = "Deon Garrett"
+
+[[authors]]
+feed = "https://swizec.com/blog/feed"
+name = "Swizec Teller"
+
+[[authors]]
+feed = "https://www.jayway.com/work?format=RSS"
+name = "Jayway team"
+
+[[authors]]
+feed = "http://www.inerciasensorial.com.br/category/programacao/clojure/feed/"
+name = "Inércia Sensorial"
+
+[[authors]]
+feed = "http://heuristic-fencepost.blogspot.com/feeds/posts/default"
+name = "Heuristic Fencepost"
+
+[[authors]]
+feed = "http://www.brainshave.com/blog/index.xml"
+name = "Szymon Witamborski"
+
+[[authors]]
+feed = "https://blog.andrewvc.com/feed.xml"
+name = "Andrew Cholakian"
+
+[[authors]]
+feed = "https://philipp.meier.name/blog/categories/clojure/atom.xml"
+name = "Philipp Meier"
+
+[[authors]]
+feed = "http://ashenfad.blogspot.com/feeds/posts/default/-/clojure"
+name = "Too Many NumLumps"

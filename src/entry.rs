@@ -38,7 +38,7 @@ impl Entry {
 
     fn preamble(&self) -> String {
         let preamble = Preamble {
-            title: self.entry.title().unwrap().to_string(),
+            title: self.entry.title().unwrap_or("").to_string(),
             author: self.default_author(),
             created_at: self.entry.pub_date().unwrap().to_string(),
         };
@@ -55,12 +55,9 @@ impl Entry {
     }
 
     fn name(&self) -> PathBuf {
-        let time = DateTime::parse_from_rfc2822(self.entry.pub_date().unwrap())
-            .unwrap()
-            .format("%Y-%m-%d");
         let directory = self.setting.out_dir.to_string();
-        let title = slugify(self.entry.title().unwrap());
-        let file_name = format!("{}-{}", time, title);
+        let title = slugify(self.entry.title().unwrap_or(""));
+        let file_name = format!("{}-{}", self.default_pub_date().unwrap(), title);
 
         Path::new(&directory)
             .join(&file_name)

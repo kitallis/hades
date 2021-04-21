@@ -39,7 +39,7 @@ impl Feed {
                     Some(entry) => {
                         entries.push(entry);
                     }
-                    None => println!("Skipping..."),
+                    None => println!("Parse error, skipping..."),
                 }
 
                 entries
