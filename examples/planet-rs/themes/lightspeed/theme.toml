@@ -1,0 +1,16 @@
+name = "lightspeed"
+description = "Zola theme with a perfect Lighthouse score"
+license = "MIT"
+homepage = "https://github.com/carpetscheme/lightspeed"
+min_version = "0.10.0"
+demo = "https://quirky-perlman-34d0da.netlify.com/"
+
+[author]
+name = "El Carpet"
+homepage = "https://github.com/carpetscheme"
+
+[original]
+author = "Bradley Taunt"
+homepage = "https://github.com/bradleytaunt"
+repo = "https://github.com/bradleytaunt/lightspeed"
+

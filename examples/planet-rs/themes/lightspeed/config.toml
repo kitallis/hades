@@ -1,0 +1,26 @@
+base_url = "https://quirky-perlman-34d0da.netlify.com"
+title = "Light Speed"
+description = "Zola theme with a perfect Lighthouse score"
+
+compile_sass = true
+generate_feed = true
+
+highlight_code = true
+highlight_theme = "gruvbox-light"
+
+[extra]
+
+seo = true
+author = "El Carpet"
+ogimage = "lightning.png"
+
+zola = true
+netlify = true
+maintained_with_love = true
+
+footer_links = [
+    {url = "$BASE_URL/about", name = "About"},
+    {url = "$BASE_URL/atom.xml", name = "RSS"},
+    {url = "https://github.com/carpetscheme/lightspeed", name = "Source on Github"},
+]
+
