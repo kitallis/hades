@@ -1,0 +1,9 @@
++++
+title = "Rust Lang ยามสงกรานต์ #5 References and Borrowing"
+date = "2021-04-18T11:51:56+00:00"
+
+[extra]
+author = "Rust on Medium"
+link = "https://medium.com/@mmxx155/rust-lang-%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%87%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B9%8C-5-references-and-borrowing-9116594fa3bb?source=rss------rust-5"
++++
+<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://medium.com/@mmxx155/rust-lang-%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%87%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B9%8C-5-references-and-borrowing-9116594fa3bb?source=rss------rust-5"><img src="https://cdn-images-1.medium.com/max/1574/1*nA5AwFiGBiaSTGvDhfchUQ.png" width="1574"></a></p><p class="medium-feed-snippet">&#xE1B;&#xE31;&#xE0D;&#xE2B;&#xE32;&#xE08;&#xE32;&#xE01;&#xE15;&#xE2D;&#xE19; ownership &#xE17;&#xE35;&#xE48;&#xE27;&#xE48;&#xE32;&#xE15;&#xE49;&#xE2D;&#xE07; return &#xE04;&#xE48;&#xE32;&#xE44;&#xE21;&#xE48;&#xE07;&#xE31;&#xE49;&#xE19;&#xE04;&#xE48;&#xE32;&#xE16;&#xE39;&#xE01; droped &#xE08;&#xE36;&#xE07;&#xE21;&#xE35; concept &#xE19;&#xE35;&#xE49;&#xE21;&#xE32; (&#xE1C;&#xE21;&#xE40;&#xE02;&#xE49;&#xE32;&#xE43;&#xE08;&#xE27;&#xE48;&#xE32;&#xE21;&#xE31;&#xE19;&#xE40;&#xE2B;&#xE21;&#xE37;&#xE2D;&#xE19; pointer&#xE43;&#xE19;&#xE20;&#xE32;&#xE29;&#xE32; C &#xE19;&#xE30;&#xE04;&#xE23;&#xE31;&#xE1A;)</p><p class="medium-feed-link"><a href="https://medium.com/@mmxx155/rust-lang-%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%87%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B9%8C-5-references-and-borrowing-9116594fa3bb?source=rss------rust-5">Continue reading on Medium »</a></p></div>

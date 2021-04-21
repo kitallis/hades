@@ -3,7 +3,7 @@ mod entry;
 mod feed;
 mod fetch;
 mod file;
-mod preamble;
+mod front_matter;
 
 use config::Config;
 

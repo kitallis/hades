@@ -1,7 +1,8 @@
 use crate::config::{Author, Setting};
 use crate::file::write;
-use crate::preamble::Preamble;
-use chrono::DateTime;
+use crate::front_matter::FrontMatter;
+use chrono::{Date, DateTime, FixedOffset};
+use nanoid::nanoid;
 use rss::Item;
 use slug::slugify;
 use std::collections::HashSet;
@@ -37,15 +38,16 @@ impl Entry {
     }
 
     fn preamble(&self) -> String {
-        let preamble = Preamble {
+        let preamble = FrontMatter {
             title: self.entry.title().unwrap_or("").to_string(),
             author: self.default_author(),
-            created_at: self.entry.pub_date().unwrap().to_string(),
+            date: self.default_pub_date().unwrap(),
+            link: self.entry.link().unwrap().to_string(),
         };
 
         match self.setting.preamble_ext.as_str() {
             "yaml" => preamble.yaml(),
-            "toml" => preamble.toml(),
+            "zola-toml" => preamble.zola_toml(),
             _ => unreachable!(),
         }
     }
@@ -57,7 +59,12 @@ impl Entry {
     fn name(&self) -> PathBuf {
         let directory = self.setting.out_dir.to_string();
         let title = slugify(self.entry.title().unwrap_or(""));
-        let file_name = format!("{}-{}", self.default_pub_date().unwrap(), title);
+        let pub_date = self
+            .default_pub_date()
+            .unwrap()
+            .format("%Y-%m-%d")
+            .to_string();
+        let file_name = format!("{}-{}-{}", pub_date, title, nanoid!());
 
         Path::new(&directory)
             .join(&file_name)
@@ -79,13 +86,13 @@ impl Entry {
         }
     }
 
-    fn default_pub_date(&self) -> Option<String> {
+    fn default_pub_date(&self) -> Option<DateTime<FixedOffset>> {
         let pub_date = self.entry.pub_date()?;
 
         match DateTime::parse_from_rfc2822(pub_date) {
-            Ok(time) => Some(time.format("%Y-%m-%d").to_string()),
+            Ok(time) => Some(time),
             Err(_e) => match DateTime::parse_from_rfc3339(pub_date) {
-                Ok(time) => Some(time.format("%Y-%m-%d").to_string()),
+                Ok(time) => Some(time),
                 Err(_e) => None,
             },
         }

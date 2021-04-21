@@ -5,7 +5,7 @@ authors = ["Akshay Gupta <kitallis@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-chrono = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
 rss = "1.0"
 futures = "0.3"
 toml = "0.4.2"
@@ -16,3 +16,4 @@ serde = { version = "1.0", features = ["derive"] }
 reqwest = { version = "0.11", features = ["json"] }
 structopt = "0.3.17"
 slug = "0.1.4"
+nanoid = "0.4.0"

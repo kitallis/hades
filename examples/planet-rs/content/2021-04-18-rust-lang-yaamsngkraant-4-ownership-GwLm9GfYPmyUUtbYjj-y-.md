@@ -1,0 +1,9 @@
++++
+title = "Rust Lang ยามสงกรานต์ #4 Ownership"
+date = "2021-04-18T04:26:57+00:00"
+
+[extra]
+author = "Rust on Medium"
+link = "https://medium.com/@mmxx155/rust-lang-%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%87%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B9%8C-4-ownership-93619ca9dda7?source=rss------rust-5"
++++
+<div class="medium-feed-item"><p class="medium-feed-image"><a href="https://medium.com/@mmxx155/rust-lang-%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%87%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B9%8C-4-ownership-93619ca9dda7?source=rss------rust-5"><img src="https://cdn-images-1.medium.com/max/846/1*MWaoLpC2wd3sWj4ZVPH0EA.png" width="846"></a></p><p class="medium-feed-snippet">&#xE21;&#xE32;&#xE16;&#xE36;&#xE07; feature &#xE17;&#xE35;&#xE48;&#xE21;&#xE35;&#xE40;&#xE09;&#xE1E;&#xE32;&#xE30;&#xE15;&#xE31;&#xE27; Rust &#xE40;&#xE2D;&#xE07;&#xE41;&#xE25;&#xE49;&#xE27;&#xE19;&#xE30;&#xE04;&#xE23;&#xE31;&#xE1A; &#xE40;&#xE1B;&#xE47;&#xE19;&#xE2A;&#xE48;&#xE27;&#xE19;&#xE17;&#xE35;&#xE48;&#xE27;&#xE48;&#xE32; &#xE17;&#xE33;&#xE44;&#xE21; Rust &#xE16;&#xE36;&#xE07;&#xE21;&#xE35;&#xE04;&#xE27;&#xE32;&#xE21;&#xE1B;&#xE25;&#xE2D;&#xE14;&#xE20;&#xE31;&#xE22;&#xE14;&#xE49;&#xE32;&#xE19;&#xE2B;&#xE19;&#xE48;&#xE27;&#xE22;&#xE04;&#xE27;&#xE32;&#xE21;&#xE08;&#xE33;&#xE41;&#xE25;&#xE30;&#xE17;&#xE33;&#xE44;&#xE21;&#xE16;&#xE36;&#xE07;&#xE44;&#xE21;&#xE48;&#xE21;&#xE35; garbage collector&#x2026;</p><p class="medium-feed-link"><a href="https://medium.com/@mmxx155/rust-lang-%E0%B8%A2%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%87%E0%B8%81%E0%B8%A3%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B9%8C-4-ownership-93619ca9dda7?source=rss------rust-5">Continue reading on Medium »</a></p></div>

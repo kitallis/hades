@@ -2,7 +2,6 @@ use serde::Deserialize;
 use std::collections::HashSet;
 use std::fs;
 use structopt::StructOpt;
-
 use url::Url;
 
 #[derive(StructOpt, Debug)]
