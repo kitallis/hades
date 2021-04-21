@@ -11,4 +11,4 @@ jobs:
       env:
         PAGES_BRANCH: gh-pages
         BUILD_DIR: examples/planet-rs/
-        TOKEN: ${{ secrets.TOKEN }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
