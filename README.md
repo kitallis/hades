@@ -45,7 +45,7 @@ tags = []
 
 ...which allows you to `skip` the feed entirely and `tags` that are specific filters for the feed.
 
-*Note:* if you do not specify the per-author tags, the global setting tags will be used. Similarly, if you specify per-author tags, they will override the global setting. Leaving tags empty fetches all posts.
+**Note:** if you do not specify the per-author tags, the global setting tags will be used. Similarly, if you specify per-author tags, they will override the global setting. Leaving tags empty fetches all posts.
 
 ### development
 
