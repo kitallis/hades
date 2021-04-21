@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Index 1,600,000,000 Keys with Automata and Rust &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="Index 1,600,000,000 Keys with Automata and Rust">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/index-1-600-000-000-keys-with-automata-and-rust-hiaudidgqrudgyxa6jivk/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2015-11-11T22:45:00-04:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/i3-the-window-manager-for-vimmers-7446qrk277zq-ox1qylit/" />
+      <link rel="next" href="https://kitallis.github.io/hades/ideas-have-expirations-pe4lgsmfptumzmgjtzwxz/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>Index 1,600,000,000 Keys with Automata and Rust</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2015-11-11T22:45:00-04:00">November 11, 2015</time>
+      by <a href="https:&#x2F;&#x2F;blog.burntsushi.net&#x2F;transducers&#x2F;">Andrew Gallant: BurntSushi</a>
+
+    </p>
+  
+
+  <p>It turns out that finite state machines are useful for things other than
+expressing computation. Finite state machines can also be used to compactly
+represent ordered sets or maps of strings that can be searched very quickly.</p>
+<p>In this article, I will teach you about finite state machines as a <em>data
+structure</em> for representing ordered sets and maps. This includes introducing
+an implementation written in Rust called the
+<a href="https://github.com/BurntSushi/fst"><code>fst</code> crate</a>.
+It comes with
+<a href="https://burntsushi.net/rustdoc/fst/">complete API documentation</a>.
+I will also show you how to build them using a simple command line tool.
+Finally, I will discuss a few experiments culminating in indexing over
+1,600,000,000 URLs (134 GB) from the
+<a href="http://blog.commoncrawl.org/2015/08/july-2015-crawl-archive-available/">July 2015 Common Crawl Archive</a>.</p>
+<p>The technique presented in this article is also how
+<a href="http://blog.mikemccandless.com/2010/12/using-finite-state-transducers-in.html">Lucene represents a part of its inverted
+index</a>.</p>
+<p>Along the way, we will talk about memory maps, automaton intersection with
+regular expressions, fuzzy searching with Levenshtein distance and streaming
+set operations.</p>
+<p><strong>Target audience</strong>: Some familiarity with programming and fundamental data
+structures. No experience with automata theory or Rust is required.</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

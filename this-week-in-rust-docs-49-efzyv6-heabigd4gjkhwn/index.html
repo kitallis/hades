@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>This Week in Rust Docs 49 &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="This Week in Rust Docs 49">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/this-week-in-rust-docs-49-efzyv6-heabigd4gjkhwn/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2017-03-26T00:00:00+00:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/writing-a-raytracer-in-rust-part-2-light-and-shadow-xin4ecqjtszbyacqfd8mj/" />
+      <link rel="next" href="https://kitallis.github.io/hades/writing-a-raytracer-in-rust-part-3-reflection-and-refraction-ytaigifdalmmx3ph1qlhj/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>This Week in Rust Docs 49</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2017-03-26T00:00:00+00:00">March 26, 2017</time>
+      by <a href="http:&#x2F;&#x2F;guillaumegomez.github.io&#x2F;this-week-in-rust-docs&#x2F;blog&#x2F;this-week-in-rust-docs-49">This week in Rust Docs</a>
+
+    </p>
+  
+
+  <p>Hello and welcome to <em>This Week in Rust Docs</em>!</p>
+<p><em>This Week in Rust Docs</em> is openly developed <a href="https://github.com/GuillaumeGomez/this-week-in-rust-docs">on GitHub</a>.
+If you find any errors in this week’s issue, <a href="https://github.com/GuillaumeGomez/this-week-in-rust-docs/pulls">please submit a PR</a>.</p>
+<p>And of course, don’t forget to look at the docs:</p>
+<ul>
+  <li><a href="https://doc.rust-lang.org/">Stable</a></li>
+  <li><a href="https://doc.rust-lang.org/beta/">Beta</a></li>
+  <li><a href="https://doc.rust-lang.org/nightly/">Nightly</a></li>
+</ul>
+<p>This week’s edition was edited by <a href="https://github.com/GuillaumeGomez">Guillaume Gomez</a>.</p>
+<h1 id="latest-news">Latest news</h1>
+<p>Nothing.</p>
+<h1 id="current-opened-issues">Current opened issues</h1>
+<p>For now, here are the two big issues for Rust documentation:</p>
+<ul>
+  <li><a href="https://github.com/rust-lang/rust/issues/29329">The Standard Library Documentation Checklist</a></li>
+  <li><a href="https://github.com/rust-lang/rust/issues/32777">Add error explanations for all error codes</a></li>
+</ul>
+<p>They all need help to move forward so any contribution is very welcome!</p>
+<p>There are currently around 70 other documentation issues opened. Look for <a href="https://github.com/rust-lang/rust/issues?q=is%3Aopen+is%3Aissue+label%3AA-docs">A-docs</a> tagged issues on GitHub!</p>
+<h1 id="waiting-for-merge">Waiting for merge</h1>
+<ul>
+  <li><a href="https://github.com/Dowwie">@Dowwie</a> updated <a href="https://github.com/rust-lang/rust/pull/39691">attributes.md : last sentence updated to reflect support for custom attributes</a>.</li>
+  <li><a href="https://github.com/GuillaumeGomez">@GuillaumeGomez</a> added <a href="https://github.com/rust-lang/rust/pull/39513">missing urls and small nits</a>, fixed <a href="https://github.com/rust-lang/rust/pull/38255">invalid module suggestion</a>, added <a href="https://github.com/rust-lang/rust/pull/37658">ref suggestion</a>, replaced <a href="https://github.com/rust-lang/rust/pull/40338">hoedown with pulldown in rustdoc</a> and replaced <a href="https://github.com/rust-lang/rust/pull/40338">hoedown with pull in rustdoc</a>.</li>
+</ul>
+<h1 id="recent-doc-contributions">Recent doc contributions</h1>
+<ul>
+  <li><a href="https://github.com/lukaramu">@lukaramu</a> updated <a href="https://github.com/rust-lang/rust/pull/40803">CONTRIBUTING.md regarding documentation contributions</a>.</li>
+  <li><a href="https://github.com/s3rvac">@s3rvac</a> fixed <a href="https://github.com/rust-lang/rust/pull/40794">formatting in the docs for std::process::Command::envs()</a> and fixed <a href="https://github.com/rust-lang/rust/pull/40648">a typo in path.rs docs</a>.</li>
+  <li><a href="https://github.com/stjepang">@stjepang</a> fixed <a href="https://github.com/rust-lang/rust/pull/40756">markdown links to pdqsort</a>, added <a href="https://github.com/rust-lang/rust/pull/40619">docs for sort_unstable to unstable book</a> and made <a href="https://github.com/rust-lang/rust/pull/40722">various fixes to wording consistency in the docs</a>.</li>
+  <li><a href="https://github.com/clarcharr">@clarcharr</a> fixed <a href="https://github.com/rust-lang/rust/pull/40567">documentation sorting</a>.</li>
+  <li><a href="https://github.com/manuel-rhdt">@manuel-rhdt</a> fixed <a href="https://github.com/rust-lang/rust/pull/40715">doc error for ExactSizeIterator</a>.</li>
+  <li><a href="https://github.com/estebank">@estebank</a> added <a href="https://github.com/rust-lang/rust/pull/40627">diagnostic for incorrect <code class="highlighter-rouge">pub (restriction)</code></a>.</li>
+  <li><a href="https://github.com/SamWhited">@SamWhited</a> added <a href="https://github.com/rust-lang/rust/pull/40723">explanation for E0090 error message</a> and made <a href="https://github.com/rust-lang/rust/pull/40692">str docs consistently punctuated</a>.</li>
+  <li><a href="https://github.com/Cldfire">@Cldfire</a> removed <a href="https://github.com/rust-lang/rust/pull/40725">duplicated styling in main.css</a>.</li>
+  <li><a href="https://github.com/jswalden">@jswalden</a> fixed <a href="https://github.com/rust-lang/rust/pull/40621">a spelling error in HashMap documentation, and slightly reworded surrounding text for precision</a>.</li>
+  <li><a href="https://github.com/steveklabnik">@steveklabnik</a> extracted <a href="https://github.com/rust-lang/rust/pull/40332">book into a submodule</a>.</li>
+  <li><a href="https://github.com/dwrensha">@dwrensha</a> fixed <a href="https://github.com/rust-lang/rust/pull/40576">innacuracy in mir TerminatorKind::SwitchInt docs</a>.</li>
+  <li><a href="https://github.com/DaseinPhaos">@DaseinPhaos</a> fixed<a href="https://github.com/rust-lang/rust/pull/40667">typo in <code class="highlighter-rouge">ptr</code> doc</a>.</li>
+  <li><a href="https://github.com/jdhorwitz">@jdhorwitz</a> cleaned <a href="https://github.com/rust-lang/rust/pull/40502">up visuals on error index</a> and improved <a href="https://github.com/rust-lang/rust/pull/40312">process docs</a>.</li>
+  <li><a href="https://github.com/GuillaumeGomez">@GuillaumeGomez</a> added <a href="https://github.com/rust-lang/rust/pull/40689">whitespace around “=” in assoc items</a>, fixed <a href="https://github.com/rust-lang/rust/pull/40690">invalid linking in iter docs</a>, added <a href="https://github.com/rust-lang/rust/pull/40671">missing urls in Option enum</a> and fixed <a href="https://github.com/rust-lang/rust/pull/40587">invalid debug display for associated consts</a>.</li>
+</ul>
+<h1 id="meetings">Meetings</h1>
+<p>Next meeting will be on Wednesday 29th of March 2017 at 20:00 GMT on #rust-docs channel on irc.mozilla.org. Feel free to come!</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

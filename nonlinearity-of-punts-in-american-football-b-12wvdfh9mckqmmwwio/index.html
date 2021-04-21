@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Nonlinearity of Punts in American Football &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="Nonlinearity of Punts in American Football">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/nonlinearity-of-punts-in-american-football-b-12wvdfh9mckqmmwwio/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2016-08-23T00:00:00+00:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/this-week-in-rust-docs-18-xhipg9ilia31o3pj2v9uk/" />
+      <link rel="next" href="https://kitallis.github.io/hades/this-week-in-rust-docs-19-r-bzbytfjfvdyo8jiavrn/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>Nonlinearity of Punts in American Football</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2016-08-23T00:00:00+00:00">August 23, 2016</time>
+      by <a href="https:&#x2F;&#x2F;jim.turner.link&#x2F;pages&#x2F;football-punts&#x2F;">Rust — Jim Turner</a>
+
+    </p>
+  
+
+  <p>This is research I conducted at Duke University to determine the sensitivity of
+final field position to punts&rsquo; initial conditions in American football. Here’s
+a sample figure from the paper:</p>
+<figure>
+    <img src="https://jim.turner.link/media/football_punts_sample_contour___default.png"
+srcset="
+<p>/media/football_punts_sample_contour___150w.png 150w,
+/media/football_punts_sample_contour___1692w.png 1692w,
+/media/football_punts_sample_contour___224w.png 224w,
+/media/football_punts_sample_contour___336w.png 336w,
+/media/football_punts_sample_contour___503w.png 503w,
+/media/football_punts_sample_contour___754w.png 754w&quot;</p>
+<p>sizes=&quot;(min-width: 37em) 37em, 100vw&quot;
+style=&quot;width:37em&quot;</p>
+<pre style="background-color:#2b303b;">
+<code>alt=&quot;Contour plot of total distance traveled as a function of initial conditions. Initial launch angle is on the horizontal axis, initial angular velocity is on the vertical axis, and distance traveled is indicated by color.&quot;&gt;
+&lt;figcaption&gt;
+    Total distance traveled as a function of initial conditions. Individual data
+    points are indicated with small black dots. (See the conference paper for
+    details.) Image created by James D. Turner, currently © 2016 ASME, and licensed under
+    &lt;a title=&quot;Creative Commons Attribution-ShareAlike 4.0 International License&quot;
+    href=&quot;https://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;CC BY‑SA 4.0&lt;/a&gt;.
+&lt;/figcaption&gt;
+</code></pre></figure>
+<h2 id="publications-presentations">Publications &amp; Presentations</h2>
+<p>Turner, J. D. and B. P. Mann. “Sensitivity of Final Field Position to the Punt
+Initial Conditions in American Football”. <em>Proceedings of the ASME 2016
+International Design Engineering Technical Conferences &amp; Computers and
+Information in Engineering Conference.</em> Charlotte, NC, August 2016.
+(<a href="https://jim.turner.link/downloads/IDETC2016-60235.pdf">conference paper (PDF)</a> and
+<a href="https://jim.turner.link/downloads/football_punt_presentation.pdf">presentation (PDF)</a>)</p>
+<h2 id="abstract">Abstract</h2>
+<p>This is the abstract from the conference paper:</p>
+<blockquote>
+<p>The starting field position is often a deciding factor in an American football
+game. In the case of a defensive stop, a kick, known as a punt, is used to give
+the receiving team a field position that is more advantageous to the kicking
+team when possession changes. The goal of the punter is to kick the ball along
+a desired flight path, where a delicate balance between the distance traveled
+before impact, hang time in the air, and the distance traveled after bouncing
+is favorable for the kicking team. However, the punter has only imprecise
+control over the initial conditions, such as the angular velocity, linear
+velocity, and orientation of the football. Due to the highly nonlinear behavior
+of the football, from aerodynamic and impact forces, even small changes in
+initial conditions can produce large changes in the final position of the
+football, but there may be regions of initial conditions with relatively
+consistent results. If punters could target such large contiguous regions of
+initial conditions with desirable football paths, they could improve their
+chances of successful kicks.</p>
+<p>For nonlinear systems, basins of attraction diagrams are often used to
+graphically display the initial conditions that lead to different final
+attractors. In this case, the regions of initial conditions that lead to a
+desirable final field position can be grouped and shown graphically. A
+numerical simulation program was developed including models for aerodynamic
+flight and bouncing of the irregularly shaped football. The flight model used
+fourth order Runge–Kutta integration of the equations of motion of the
+football, including gravitational and aerodynamic forces and moments with
+empirical lift, drag, and yaw coefficients in three dimensions. The bounce
+model was based on an empirical two-dimensional coefficient of restitution
+model that was published in the literature. The behavior of a football in
+flight and during bouncing was simulated for a range of initial angular
+velocities and launch angles, and the characteristics of the flight paths were
+analyzed. The characteristics of some regions of initial conditions were
+relatively sensitive to small changes, while other regions were relatively
+uniform. This shows that this approach, with a quantitatively accurate bounce
+model, could be practically applied to develop a guide for punters to optimize
+their kicks. With such a guide and sufficient practice, punters could select
+and target the larger regions of initial conditions that produced desirable
+behavior, which would improve their chances of successful punts.</p>
+</blockquote>
+<p><cite>Written by James D. Turner and Brian P. Mann, currently © 2016 ASME, and
+licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY‑NC‑ND 4.0</a>.</cite></p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ripgrep is faster than {grep, ag, git grep, ucg, pt, sift} &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/ripgrep-is-faster-than-grep-ag-git-grep-ucg-pt-sift-i883fdtecyq9gpeqrf3fo/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2016-09-23T07:05:00-04:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/rustconf-2016-travelogue-6gq9tcmvmsmcmipa4irc5/" />
+      <link rel="next" href="https://kitallis.github.io/hades/this-week-in-rust-docs-23-ft3478gjeqrbr8xj-exgp/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>ripgrep is faster than {grep, ag, git grep, ucg, pt, sift}</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2016-09-23T07:05:00-04:00">September 23, 2016</time>
+      by <a href="https:&#x2F;&#x2F;blog.burntsushi.net&#x2F;ripgrep&#x2F;">Andrew Gallant: BurntSushi</a>
+
+    </p>
+  
+
+  <p>In this article I will introduce a new command line search tool,
+<a href="https://github.com/BurntSushi/ripgrep"><code>ripgrep</code></a>,
+that combines the usability of
+<a href="https://github.com/ggreer/the_silver_searcher">The Silver Searcher</a>
+(an <a href="http://beyondgrep.com/"><code>ack</code></a> clone) with the
+raw performance of GNU grep. <code>ripgrep</code> is fast, cross platform (with binaries
+available for Linux, Mac and Windows) and written in
+<a href="https://www.rust-lang.org">Rust</a>.</p>
+<p><code>ripgrep</code> is available on
+<a href="https://github.com/BurntSushi/ripgrep">Github</a>.</p>
+<p>We will attempt to do the impossible: a fair benchmark comparison between
+several popular code search tools. Specifically, we will dive into a series of
+25 benchmarks that substantiate the following claims:</p>
+<ul>
+<li>For both searching single files <em>and</em> huge directories of files, no other
+tool obviously stands above <code>ripgrep</code> in either performance or correctness.</li>
+<li><code>ripgrep</code> is the only tool with proper Unicode support that doesn&rsquo;t make
+you pay dearly for it.</li>
+<li>Tools that search many files at once are generally <em>slower</em> if they use
+memory maps, not faster.</li>
+</ul>
+<p>As someone who has worked on text search in Rust in their free time for the
+last 2.5 years, and as the author of both <code>ripgrep</code> and
+<a href="https://github.com/rust-lang-nursery/regex">the underlying regular expression engine</a>,
+I will use this opportunity to provide detailed insights into the performance
+of each code search tool. No benchmark will go unscrutinized!</p>
+<p><strong>Target audience</strong>: Some familiarity with Unicode, programming and some
+experience with working on the command line.</p>
+<p><strong>NOTE</strong>: I&rsquo;m hearing reports from some people that <code>rg</code> isn&rsquo;t as fast as I&rsquo;ve
+claimed on their data. I&rsquo;d love to help explain what&rsquo;s going on, but to do
+that, I&rsquo;ll need to be able to reproduce your results. If you
+<a href="https://github.com/BurntSushi/ripgrep/issues">file an issue</a>
+with something I can reproduce, I&rsquo;d be happy to try and explain it.</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

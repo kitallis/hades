@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>This Week in Rust Docs 71 &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="This Week in Rust Docs 71">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/this-week-in-rust-docs-71-zp-sxeh3n0lwodtlnsdl1/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2017-09-03T00:00:00+00:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/distribution-of-rust-binaries-ln3kdgev1ft0bx2us5lzp/" />
+      <link rel="next" href="https://kitallis.github.io/hades/this-week-in-rust-docs-72-phctaztlptp8xictqaxov/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>This Week in Rust Docs 71</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2017-09-03T00:00:00+00:00">September 03, 2017</time>
+      by <a href="http:&#x2F;&#x2F;guillaumegomez.github.io&#x2F;this-week-in-rust-docs&#x2F;blog&#x2F;this-week-in-rust-docs-71">This week in Rust Docs</a>
+
+    </p>
+  
+
+  <p>Hello and welcome to <em>This Week in Rust Docs</em>!</p>
+<p><em>This Week in Rust Docs</em> is openly developed <a href="https://github.com/GuillaumeGomez/this-week-in-rust-docs">on GitHub</a>.
+If you find any errors in this week’s issue, <a href="https://github.com/GuillaumeGomez/this-week-in-rust-docs/pulls">please submit a PR</a>.</p>
+<p>And of course, don’t forget to look at the docs:</p>
+<ul>
+  <li><a href="https://doc.rust-lang.org/">Stable</a></li>
+  <li><a href="https://doc.rust-lang.org/beta/">Beta</a></li>
+  <li><a href="https://doc.rust-lang.org/nightly/">Nightly</a></li>
+</ul>
+<p>This week’s edition was edited by <a href="https://github.com/GuillaumeGomez">Guillaume Gomez</a>.</p>
+<h1 id="latest-news">Latest news</h1>
+<p>The switch to <a href="https://github.com/google/pulldown-cmark">Pulldown</a> for the rust doc rendering has finally <a href="https://github.com/rust-lang/rust/pull/41991">started</a>!</p>
+<h1 id="current-opened-issues">Current opened issues</h1>
+<p>For now, here are the three big issues for Rust documentation:</p>
+<ul>
+  <li><a href="https://github.com/rust-lang/rust/issues/29329">The Standard Library Documentation Checklist</a></li>
+  <li><a href="https://github.com/rust-lang/rust/issues/32777">Add error explanations for all error codes</a></li>
+  <li><a href="https://github.com/rust-lang-nursery/reference/issues/9">Document all features in the Rust reference</a></li>
+</ul>
+<p>They all need help to move forward so any contribution is very welcome!</p>
+<p>There are currently around 70 other documentation issues opened. Look for <a href="https://github.com/rust-lang/rust/labels/T-doc">T-doc</a> tagged issues on GitHub!</p>
+<h1 id="waiting-for-merge">Waiting for merge</h1>
+<ul>
+  <li><a href="https://github.com/qnighy">@qnighy</a> added <a href="https://github.com/rust-lang/rust/pull/43426">hints when intercrate ambiguity causes overlap</a>.</li>
+  <li><a href="https://github.com/QuietMisdreavus">@QuietMisdreavus</a> added <a href="https://github.com/rust-lang/rust/pull/43849">new “Implementations on Foreign Types” section to traits in rustdoc</a>, hid <a href="https://github.com/rust-lang/rust/pull/44026">internal types/traits from std docs via new #[doc(masked)] attribute</a> and expanded <a href="https://github.com/rust-lang/rust/pull/44194">on using rustup custom toolchains in CONTRIBUTING.md</a>.</li>
+  <li><a href="https://github.com/gaurikholkar">@gaurikholkar</a> extended <a href="https://github.com/rust-lang/rust/pull/44079">E0623 for LateBound and EarlyBound Regions</a> and added <a href="https://github.com/rust-lang/rust/pull/44124">E0623 for return types - both parameters are anonymous</a>.</li>
+  <li><a href="https://github.com/Mark-Simulacrum">@Mark-Simulacrum</a> added <a href="https://github.com/rust-lang/rust/pull/44274">tests rustdoc</a>.</li>
+  <li><a href="https://github.com/MarkMcCaskey">@MarkMcCaskey</a> updated <a href="https://github.com/rust-lang/rust/pull/44206">unimplemented! docs</a>.</li>
+  <li><a href="https://github.com/steveklabnik">@steveklabnik</a> deprecated <a href="https://github.com/rust-lang/rust/pull/44138">several flags in rustdoc</a>.</li>
+  <li><a href="https://github.com/GuillaumeGomez">@GuillaumeGomez</a> stabilised <a href="https://github.com/rust-lang/rust/pull/43949">compile_fail</a>, added <a href="https://github.com/rust-lang/rust/pull/43870">deref suggestion</a>, fixed <a href="https://github.com/rust-lang/rust/pull/44254">rendering of const keyword for functions</a> and added <a href="https://github.com/rust-lang/rust/pull/44165">display of cfg in rustdoc</a>.</li>
+</ul>
+<h1 id="recent-doc-contributions">Recent doc contributions</h1>
+<ul>
+  <li><a href="https://github.com/ishitatsuyuki">@ishitatsuyuki</a> made <a href="https://github.com/rust-lang/rust/pull/42588">unused-extern-crate warn-by-default</a>.</li>
+  <li><a href="https://github.com/llogiq">@llogiq</a> added <a href="https://github.com/rust-lang/rust/pull/44104">a lowercase suggestion to unknown_lints</a>.</li>
+  <li><a href="https://github.com/oli-obk">@oli-obk</a> added <a href="https://github.com/rust-lang/rust/pull/43886">clippy as a submodule</a>, `](https://github.com/rust-lang/rust/pull/44059).</li>
+  <li><a href="https://github.com/mystor">@mystor</a> removed <a href="https://github.com/rust-lang/rust/pull/43918">highlight of # which does not start an attribute in rustdoc</a>.</li>
+  <li><a href="https://github.com/nrc">@nrc</a> improved <a href="https://github.com/rust-lang/rust/pull/44238">the Pulldown/hoedown warnings</a>.</li>
+  <li><a href="https://github.com/mattico">@mattico</a> fixed <a href="https://github.com/rust-lang/rust/pull/44172">link in unstable book entry for Generators</a>.</li>
+  <li><a href="https://github.com/frewsxcv">@frewsxcv</a> expandws <a href="https://github.com/rust-lang/rust/pull/44209">docs of multi-address behavior of some UDP/TCP APIs</a>, fixed <a href="https://github.com/rust-lang/rust/pull/44205">typo in doc <code class="highlighter-rouge">ToSocketAddrs</code> example</a> and rewrote <a href="https://github.com/rust-lang/rust/pull/44117"><code class="highlighter-rouge">std::net::ToSocketAddrs</code> doc examples</a>.</li>
+  <li><a href="https://github.com/lukaramu">@lukaramu</a> fixed <a href="https://github.com/rust-lang/rust/pull/44231">release notes on associated constants</a>.</li>
+  <li><a href="https://github.com/Phlosioneer">@Phlosioneer</a> fixed <a href="https://github.com/rust-lang/rust/pull/44230">typo in 1.20.0 release notes</a>.</li>
+  <li><a href="https://github.com/daboross">@daboross</a> clarified <a href="https://github.com/rust-lang/rust/pull/44114">that VecDeque::swap can panic</a>.</li>
+  <li><a href="https://github.com/GuillaumeGomez">@GuillaumeGomez</a> added <a href="https://github.com/rust-lang/rust/pull/41991">warnings when rustdoc html rendering differs</a>, updated <a href="https://github.com/rust-lang/rust/pull/44256">html-diff-rs version</a>, fixed <a href="https://github.com/rust-lang/rust/pull/44192">invalid display of enum sub-fields docs</a> and fixed <a href="https://github.com/rust-lang/rust/pull/44135">invalid linker position</a>.</li>
+</ul>
+<h1 id="meetings">Meetings</h1>
+<p>Next meeting will be on Wednesday 6th of September 2017 at 20:00 GMT on #rust-docs channel on irc.mozilla.org. Feel free to come!</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>How I Reclaimed My Attention &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="How I Reclaimed My Attention">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/how-i-reclaimed-my-attention-nntezk8r-gcoxm3t8aq1c/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2020-12-06T00:00:00+00:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/building-a-recipe-manager-part-5-data-integrity-ppul-k-8xldbqrhnffejm/" />
+      <link rel="next" href="https://kitallis.github.io/hades/announcing-tokio-1-0-9q9btpplcbuk3gwl15p16/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>How I Reclaimed My Attention</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2020-12-06T00:00:00+00:00">December 06, 2020</time>
+      by <a href="http:&#x2F;&#x2F;vitiral.github.com&#x2F;2020&#x2F;12&#x2F;06&#x2F;how-I-reclaimed-my-attention.html">Vitiral</a>
+
+    </p>
+  
+
+  <p>It feels like boredome has been nearly extinguished, but our resiliency to it
+is lower than ever. Our smartphone is always at hand, and if you pay attention
+you can likely find yourself checking it nearly every second of downtime –
+becomming a default impulse that hapens so quickly there isn’t even an
+<em>opportunity</em> to resist it.</p>
+<p>However, I believe boredom has immense value. I find some of my most creative
+and enjoyable moments to be when I am otherwise largely bored. For instance,
+it’s hard to really <em>enjoy</em> music if you are not otherwise bored – as music
+cannot be fully appreciated while doing another task. More important, being
+resilient to boredom allows you to have more freedom to direct your attention
+to the things you value.</p>
+<p>This blog post is not about the value of boredom in our lives, nor about the
+value in having freedom in how we apply our attention. It is assumed that you
+already see the value of those things or at least how they could be valuable.
+Instead, this is about some of the general strategies I employ to reduce my
+levels of distraction and live what I feel is a moderatly happy life.  I’ve
+struggled with attention addiction (addiction to video games, streaming website
+information, etc) for most of my adult life, and have built up a large variety
+of methods and tricks to reduce their hold on me.</p>
+<p><strong>Step 1: make it very difficult to “automatically” do distracting behavior</strong></p>
+<p>Specifically, (1) remove apps like twitter, reddit, facebook, games etc from
+your phone. (2) Since these are all accessible via the web, <strong>also remove
+chrome/safari</strong> (and any other browser) as well. Technically on most phones you
+can only “disable” these things, but the point is not to make it impossible to
+distract yourself (you can never accomplish that) but to provide a barrier
+against it being an <em>impulse</em>. Personally, I have also disabled the App Store
+and the Search functionality built-into the phone, even disabling Gmail for a
+few weeks at a time, since I found myself impulsively using that.</p>
+<p>Finally, (3) have a laptop/computer that is for “getting things done.” Most
+likely, this is your work computer. (For linux/mac) go to <code class="language-plaintext highlighter-rouge">/etc/hosts</code> and
+disable sites that distract you like so:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1     facebook.com
+127.0.0.1     www.facebook.com
+127.0.0.1     reddit.com
+127.0.0.1     www.reddit.com
+# ... etc
+</code></pre></div></div>
+<p><strong>Step 2: create consequences</strong></p>
+<p>Write a contract with yourself; even better a best friend or significant other.
+It should have:</p>
+<ol>
+  <li>What (significant) behaviors you are not allowed to do.</li>
+  <li>The consequences for doing those behaviors.</li>
+</ol>
+<p>For me, since I don’t like sports, doing any of the distracting behaviors (for
+more than 1 minute) requires me to purchase or wear Denver Broncos memoribilia.
+If I do distracting behaviors 10ish times, I have to get a Denver Broncos
+tatoo.</p>
+<p>For smaller behaviors, like compuslively checking my phone, I have a
+spreadsheet where I keep track of how often I compulively checked my phone that
+day. This means that if I compusively open my phone, I have an immediate
+consequence of needing to record it.</p>
+<p>I found the book Atomic Habbits by James Clear useful as well. You might as
+well.</p>
+<p><strong>Step 3: Find ways to still be connected (when useful)</strong></p>
+<p>I have a “personal laptop” which I can only use after I put my kids to bed for
+about an hour and a half. This is where I do my open source work, and also
+where I briefly check some tech news. The news is blocked on my work computer
+for obvious reasons, but it is nice to be able to stay up to date. I try to
+stay away from most news. I find it tends to depresses me even though
+I have no control over it, which has limited value.</p>
+<p>I also still listen to podcasts, audiobooks and music on my phone, especially
+while running or doing chores. This lets me stay connected while doing
+activities that I value.</p>
+<p>For me personally, I have completely abandoned video games, reddit and (non
+educational) youtube. This is the nature of my own addiction, which is akin
+to an alcoholic not being able to “just have one drink”.</p>
+<p>Also for me personally, I have found outlets for some of my addictions. I find
+(open source) programming nearly as enjoyable/distracting as playing video
+games, but with a much larger long-term benefit. Therefore, I do open source
+programming for a large chunk of my freetime. My recent project is
+<a href="https://civboot.org">civboot</a>, check it out!</p>
+<p><strong>Conclussion</strong></p>
+<p>Come up with your own methods or mimick mine – what’s important is that you
+have strategies. Also, it is important that you accept failure, because you
+will fail alot. You have your whole life to figure out how to reduce
+distraction and pay attention to the things that matter, so don’t stress out
+about it. Don’t stress, but start right now.</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

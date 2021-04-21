@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Runtime-fmt, a runtime formatting crate &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="Runtime-fmt, a runtime formatting crate">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/runtime-fmt-a-runtime-formatting-crate-pl-qosqvcqra1qn3unwo/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2017-04-05T15:42:00-07:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/calling-rust-from-python-cddtdgnsdebmfgewrin7l/" />
+      <link rel="next" href="https://kitallis.github.io/hades/this-week-in-rust-docs-51-b4ooyuxwtelvwqntoexub/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>Runtime-fmt, a runtime formatting crate</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2017-04-05T15:42:00-07:00">April 05, 2017</time>
+      by <a href="https:&#x2F;&#x2F;www.platymuus.com&#x2F;posts&#x2F;2017&#x2F;runtime-fmt&#x2F;">Platymuus</a>
+
+    </p>
+  
+
+  <p><a href="https://crates.io/crates/runtime-fmt"><code class="highlighter-rouge">runtime-fmt</code></a> is a small, nightly-only, safe Rust crate which provides
+variants of the six standard formatting macros which validate their format
+strings at runtime. It has feature parity with <code class="highlighter-rouge">std::fmt</code> and accepts exactly
+the same syntax for format strings and arguments, with the additional feature
+of supporting format strings which are not known at compile time.</p>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="p">[</span><span class="n">macro_use</span><span class="p">]</span> <span class="k">extern</span> <span class="n">crate</span> <span class="n">runtime_fmt</span><span class="p">;</span>
+<p><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">let</span> <span class="n">format_string</span> <span class="o">=</span> <span class="s">&quot;Hello, {}!&quot;</span><span class="p">;</span>
+<span class="nd">rt_println!</span><span class="p">(</span><span class="n">format_string</span><span class="p">,</span> <span class="s">&quot;world&quot;</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+<span class="nd">rt_println!</span><span class="p">(</span><span class="s">&quot;bogus {} reference&quot;</span><span class="p">)</span><span class="nf">.unwrap_err</span><span class="p">();</span>
+<span class="nd">rt_println!</span><span class="p">(</span><span class="s">&quot;bogus }{ format string&quot;</span><span class="p">)</span><span class="nf">.unwrap_err</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div></p>
+<p>Applications include internationalization, configuration, and modding. For
+example, designers might be allowed to adjust text with interspersed values in
+a video game, or command-line users could specify what shape the output should
+be.</p>
+<p>The core implementation is under 300 SLOC, plus 550 or
+so to embed <code class="highlighter-rouge">libfmt_macros</code>.</p>
+<h2 id="implementation">Implementation</h2>
+<p><code class="highlighter-rouge">runtime-fmt</code> is safe. It achieves direct feature-parity with the standard
+formatting macros by using the <a href="https://github.com/rust-lang/rust/blob/9b0b5b45dbd268aba0a79453f506bfe00bb57042/src/libfmt_macros/lib.rs">same code</a> that <code class="highlighter-rouge">rustc</code> uses to parse format
+strings. Somewhat awkwardly, this code is included inline in the crate rather
+than linked in, because it is distributed only dynamically, and most Rust users
+don’t want to link <code class="highlighter-rouge">libstd</code> dynamically.
+On top of format string parsing, <code class="highlighter-rouge">rustc</code> includes elaborate machinery for
+converting the parsed format string into an AST for macro expansion. Because
+<code class="highlighter-rouge">runtime-fmt</code> does not need to work on the AST level, and can make assumptions
+about the values returned by <code class="highlighter-rouge">libfmt_macros</code>, this conversion is vastly
+simplified.</p>
+<p>All format specifiers are supported. Recognizing at runtime whether a given
+argument supports a given format string is achieved through specialization,
+implementing internal shadow traits of the standard formatting traits which
+return <code class="highlighter-rouge">None</code> when unavailable, and surfacing this as an error to users.</p>
+<p>All errors are encapsulated in an <code class="highlighter-rouge">enum Error</code>, returned within a <code class="highlighter-rouge">Result</code> from
+all the macros. Syntax errors are returned as-is, including descriptions
+similar to those generated by rustc, and other types of error variants are
+available, including <code class="highlighter-rouge">std::io::Error</code> and <code class="highlighter-rouge">std::fmt::Error</code> variants which may
+be returned when using <code class="highlighter-rouge">rt_write!</code> or <code class="highlighter-rouge">rt_writeln!</code>.</p>
+<p>The crate requires nightly for obvious reasons; access to the formatting
+machinery isn’t stable, and might never be. That said, it changes rarely, and
+the crate is unlikely to break often. The use of specialization described
+earlier also requires nightly.</p>
+<h2 id="test-suite">Test Suite</h2>
+<p>This crate passes the <a href="https://github.com/rust-lang/rust/blob/80654862831e27f249f05bcb50552510f1b5f643/src/test/run-pass/ifmt.rs">main body of tests</a> from rustc’s test suite, as
+well as a small smattering of tests written specifically for <code class="highlighter-rouge">runtime-fmt</code>. I
+intend to continue to expand the test suite, both to include more tests from
+rustc and to more rigorously ensure that format string and argument
+combinations which ought to error do.</p>
+<h2 id="future-expansion">Future Expansion</h2>
+<p>Some performance is left on the table in the initial implementation.
+Particularly, format strings are re-parsed each time the string is to be
+formatted. I have an idea on how to fix this, revolving around specifying a
+struct or tuple type in <code class="highlighter-rouge">rt_format_args!</code> once during parsing, where the format
+string is parsed and types are resolved and checked, and then supplying values
+of that struct type which can be formatted quickly by the prebuilt formatter.</p>
+<p>Most of <code class="highlighter-rouge">std::fmt</code> is also available in <code class="highlighter-rouge">core</code>. The library currently uses heap
+allocation in many instances, but it may be possible to adapt it to use static
+buffers or other trickery in those situations and thereby allow the library
+to be used under <code class="highlighter-rouge">#[no_std]</code>, just like the builtin formatting macros.</p>
+<p><em>Addendum</em>: thanks <code class="highlighter-rouge">illegalprime</code> on IRC for pointing out that the snippet at
+the top of the blog post didn’t demonstrate error handling.</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

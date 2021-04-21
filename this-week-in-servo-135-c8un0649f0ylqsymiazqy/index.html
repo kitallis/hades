@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>This Week In Servo 135 &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="This Week In Servo 135">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/this-week-in-servo-135-c8un0649f0ylqsymiazqy/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2020-08-10T00:30:00+00:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/efficient-use-of-travis-ci-s-cache-for-rust-builds-hvk1nw0-iacrnotecd4ad/" />
+      <link rel="next" href="https://kitallis.github.io/hades/gsoc-wrap-up-implementing-webgpu-in-servo-dxwn1fawalzrmtginlofe/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>This Week In Servo 135</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2020-08-10T00:30:00+00:00">August 10, 2020</time>
+      by <a href="https:&#x2F;&#x2F;blog.servo.org&#x2F;2020&#x2F;08&#x2F;10&#x2F;twis-135&#x2F;">Servo Blog</a>
+
+    </p>
+  
+
+  <p>In the <a href="https://github.com/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Amerged+closed%3A2020-07-27..2020-08-10+user%3Aservo+">past two weeks</a>,
+we merged 108 PRs in the Servo organization’s repositories.</p>
+<p>The latest nightly builds for common platforms are available at <a href="https://download.servo.org/">download.servo.org</a>.</p>
+<p>Last week we released <a href="https://www.microsoft.com/p/firefox-reality/9npq78m7nb0r">Firefox Reality v1.2</a>, which includes a smoother
+developer tools experience, along with support for Unity WebXR content and self-signed SSL certificates. See the
+<a href="https://github.com/servo/servo/wiki/Firefox-Reality-release-notes">full release notes</a> for more information about the new release.</p>
+<p><img src="https://user-images.githubusercontent.com/27658/89798375-19568080-dafa-11ea-8bd3-d47a85741ed5.png" alt="Image of unity webxr content" /></p>
+<h3 id="planning-and-status">Planning and Status</h3>
+<p>Our <a href="https://github.com/servo/servo/wiki/Roadmap">roadmap</a> is available online, including the team’s plans for 2020.</p>
+<p>This week’s status updates are <a href="https://build.servo.org/standups/">here</a>.</p>
+<h3 id="exciting-works-in-progress">Exciting works in progress</h3>
+<ul>
+  <li>paulrouget is <a href="https://github.com/servo/servo/pull/27556">adding</a> bookmarks to Firefox Reality.</li>
+  <li>Manishearth is <a href="https://github.com/servo/servo/pull/27488">implementing</a> basic table support in the new Layout 2020 engine.</li>
+  <li>jdm is <a href="https://github.com/servo/servo/pull/27474">making</a> it easy to create builds that integrate AddressSanitizer.</li>
+  <li>pcwalton is <a href="https://github.com/servo/servo/pull/27539">implementing</a> support for CSS floats in the new Layout 2020 engine.</li>
+  <li>kunalmohan is <a href="https://github.com/servo/servo/projects/24">implementing</a> the draft WebGPU specification.</li>
+</ul>
+<h3 id="notable-additions">Notable Additions</h3>
+<h5 id="new-layout-engine">New layout engine</h5>
+<ul>
+  <li>jdm <a href="https://github.com/servo/servo/pull/26447">made</a> <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code> elements break lines.</li>
+  <li>Manishearth <a href="https://github.com/servo/servo/pull/27388">implemented</a> support for the <code class="language-plaintext highlighter-rouge">clip</code> CSS property.</li>
+  <li>Manishearth <a href="https://github.com/servo/servo/pull/27399">fixed</a> the behaviour of the <code class="language-plaintext highlighter-rouge">inset</code> CSS property for absolutely positioned elements.</li>
+</ul>
+<h4 id="non-layout-changes">Non-layout changes</h4>
+<ul>
+  <li>kunalmohan <a href="https://github.com/servo/servo/pull/27402">added</a> the WebGPU conformance test suite to Servo’s automated tests.</li>
+  <li>jdm <a href="https://github.com/servo/servo/pull/27403">improved</a> the macOS nightly GStreamer packaging.</li>
+  <li>nicoabie <a href="https://github.com/servo/rust-mozjs/pull/520">made</a> a SpiderMonkey Rust binding API more resilient.</li>
+  <li>utsavoze <a href="https://github.com/servo/servo/pull/27413">added</a> support for <code class="language-plaintext highlighter-rouge">mouseenter</code> and <code class="language-plaintext highlighter-rouge">mouseleave</code> DOM events.</li>
+  <li>avr1254 <a href="https://github.com/servo/servo/pull/27420">removed</a> some unnecessary UTF-8 to UTF-16 conversions when interacting with SpiderMonkey.</li>
+  <li>jdm <a href="https://github.com/servo/servo/pull/27425">implemented</a> <code class="language-plaintext highlighter-rouge">preserveDrawbingBuffer</code> support in WebGL code.</li>
+  <li>paulrouget <a href="https://github.com/servo/servo/pull/27438">added</a> a crash reporting UI to Firefox Reality.</li>
+  <li>mustafapc19 <a href="https://github.com/servo/servo/pull/27443">implemented</a> the <code class="language-plaintext highlighter-rouge">Console.clear</code> DOM API.</li>
+  <li>kunalmohan <a href="https://github.com/servo/servo/pull/27447">fixed</a> a WebGPU crash related to the <code class="language-plaintext highlighter-rouge">GPUErrorScope</code> API, and <a href="https://github.com/servo/servo/pull/27536">improved</a> the reporting behaviour to match the specification.</li>
+  <li>asajeffrey <a href="https://github.com/servo/servo/pull/27448">fixed</a> a source of WebGL texture corruption in WebXR.</li>
+  <li>asajeffrey <a href="https://github.com/servo/servo/pull/27456">added</a> infrastructure to the GStreamer plugin to allow live-streaming 360 degree videos of Hubs rooms to Youtube.</li>
+  <li>kunalmohan <a href="https://github.com/servo/servo/pull/27480">improved</a> the error reporting behaviour of the WebGPU API.</li>
+  <li>asajeffrey <a href="https://github.com/servo/servo/pull/27487">update</a> the WebXR Layers implementation to match the latest specification.</li>
+  <li>paulrouget <a href="https://github.com/servo/servo/pull/27491">improved</a> the Firefox Reality preferences panel to highlight specific experimental features.</li>
+  <li>jdm <a href="https://github.com/servo/servo/pull/27530">fixed</a> a crash when playing media in Firefox Reality.</li>
+  <li>paulrouget <a href="https://github.com/servo/servo/pull/27506">fixed</a> a source of memory corruption in the C++ embedding layer.</li>
+  <li>jdm <a href="https://github.com/servo/servo/pull/27512">avoided</a> pancking when a devtools client disconnects unexpectedly.</li>
+  <li>asajeffrey <a href="https://github.com/servo/webxr/pull/191">made</a> it easier to test AR web content in desktop builds.</li>
+</ul>
+<h3 id="new-contributors">New Contributors</h3>
+<ul>
+  <li><a href="https://github.com/nosark">Kyle Nosar</a></li>
+  <li><a href="https://github.com/Monty0045">Wyatt Turner</a></li>
+  <li><a href="https://github.com/mustafapc19">mustafapc19</a></li>
+</ul>
+<p>Interested in helping build a web browser? Take a look at our <a href="https://starters.servo.org/">curated list</a> of issues that are good for new contributors!</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

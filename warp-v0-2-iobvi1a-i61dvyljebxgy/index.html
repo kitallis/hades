@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>warp v0.2 &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="warp v0.2">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/warp-v0-2-iobvi1a-i61dvyljebxgy/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2020-01-16T11:23:28-08:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/reqwest-v0-10-ggrjibkwsu5i3ssvmlb0z/" />
+      <link rel="next" href="https://kitallis.github.io/hades/my-foss-story-ewj0lcck41ejhgjlpvkru/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>warp v0.2</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2020-01-16T11:23:28-08:00">January 16, 2020</time>
+      by <a href="https:&#x2F;&#x2F;seanmonstar.com&#x2F;post&#x2F;190293882502">Sean McArthur : seanmonstar</a>
+
+    </p>
+  
+
+  <p><a href="https://crates.io/crates/warp">Warp</a> is a Rust web server framework focusing on composability and strongly-typed APIs.</p>
+<p>Today sees the release of <a href="https://github.com/seanmonstar/warp/releases/tag/v0.2.0">v0.2</a>!</p>
+<h3>Async and Await</h3>
+<p>The most exciting part of this release is the upgrade to <code>std::future</code>, so you can now use <code>async</code>/<code>await</code> for cleaner flow control. Due to how warp encourages composition of filters, this is most noticeable at the &ldquo;ends&rdquo; of a filter chain, where an application is doing its &ldquo;business logic&rdquo;, converting input into actions and replies. And that&rsquo;s where most of the app code is!</p>
+<h3>Services</h3>
+<p>In the <a href="https://seanmonstar.com/post/176530511587/warp">original release of warp</a>, I wrote:</p>
+<blockquote>
+  <p>We’d like for warp to be able to make use of all the great <code>tower</code> middleware that already exists.</p>
+</blockquote>
+<p>As part of this release, that is now possible! Any <code>Filter</code> which returns a <code>Reply</code> can now be converted into a <code>Service</code> using <code>warp::service(filter)</code>. This means you can wrap your filters with any of the growing middlewares, as described in the <a href="https://seanmonstar.com/post/189594157852/hyper-v013">hyper v0.13 announcement</a>.</p>
+<h3>Thanks</h3>
+<p>This was a lot of work by <a href="https://github.com/seanmonstar/warp/graphs/contributors">over 60 new contributors</a>, including the massive <code>std::future</code> refactor by new collaborator <a href="https://github.com/jxs">@jxs</a>.</p>
+<p>Be sure to check the <a href="https://github.com/seanmonstar/warp/releases/tag/v0.2.0">changelog</a> for all the goodies!</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+

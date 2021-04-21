@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>reqwest v0.10 &middot; Planet of the Crabs</title>
+    <meta name="description" content="🦀 fearless rust" />
+    <link rel="shortcut icon"  href="https://kitallis.github.io/hades/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://kitallis.github.io/hades/atom.xml">
+
+    <style>html,body{background:#fffaf7;color:#2d2d2d;font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"}a,a:visited{color:darkred;text-decoration:none}a:hover{text-decoration:underline}main{margin:auto;max-width:60rem;padding:0.8rem}pre{background:white;overflow:scroll;padding:1rem}td{border:1px solid #2d2d2d;padding:10px}img{height:auto;max-width:100%}.homepage-list{list-style:none;padding:1rem 0}.homepage-list li{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin-bottom:10px}@media (max-width: 38rem){.homepage-list li a{width:100%}}
+</style>
+
+    <meta property="og:site_name" content="Planet of the Crabs">
+      
+      <meta property="og:title" content="reqwest v0.10">
+      <meta property="og:description" content="">
+      <meta property="og:url" content="https://kitallis.github.io/hades/reqwest-v0-10-ggrjibkwsu5i3ssvmlb0z/">
+      <meta property="og:image" content="">
+
+      <meta property="og:type" content="article" />
+        <meta property="article:published_time" content="2019-12-30T10:38:35-08:00" />
+
+      <link rel="prev" href="https://kitallis.github.io/hades/announcing-tokio-compat-thflfij5hqtzywdoq8hhm/" />
+      <link rel="next" href="https://kitallis.github.io/hades/warp-v0-2-iobvi1a-i61dvyljebxgy/" />
+    
+
+  </head>
+  
+
+  <body>
+    <main id="main" role="main">
+
+      
+      <header role="banner">
+        <h3 style="margin-top:0;">
+          <a href="https://kitallis.github.io/hades/" title="Home">Planet of the Crabs</a>
+          <br /><small>🦀 fearless rust</small>
+        </h3>
+      </header>
+      <hr />
+      
+
+      
+<article>
+  <h1>reqwest v0.10</h1>
+
+  
+    <p style="font-size:90%;">
+      Posted on <time datetime="2019-12-30T10:38:35-08:00">December 30, 2019</time>
+      by <a href="https:&#x2F;&#x2F;seanmonstar.com&#x2F;post&#x2F;189960517042">Sean McArthur : seanmonstar</a>
+
+    </p>
+  
+
+  <p><a href="https://crates.io/crates/reqwest">reqwest</a> is a higher-level HTTP client for Rust. Let me introduce you the <a href="https://github.com/seanmonstar/reqwest/releases/tag/v0.10.0">v0.10</a> release that adds <code>async</code>/<code>await</code> support!</p>
+<p>Some headline features are:</p>
+<ul><li>Add <code>std::future::Future</code> support (hello <code>async</code>/<code>await</code>).</li>
+<li>Add experimental WASM support.</li>
+<li>Change the default client API to async, moving the previous synchronous API to <code>reqwest::blocking</code>.</li>
+<li>Make many &ldquo;extra&rdquo; features optional to reduce unnecessary dependencies (<code>blocking</code>, <code>cookies</code>, <code>gzip</code>, <code>json</code>, etc).</li>
+<li>Enable automatic &ldquo;system&rdquo; proxy detection.</li>
+</ul><p>Here&rsquo;s a simple streaming example using the new syntax:</p>
+<pre><code class="rust">async fn example() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
+    let mut resp = reqwest::get("https://hyper.rs").await?;
+
+    while let Some(chunk) = resp.chunk().await? {
+        stdout().write_all(&amp;chunk).await?;
+    }
+
+    Ok(())
+} 
+</code></pre>
+<p>I want to thank all those contributing to make the best Rust HTTP client even better!</p>
+<p>Take a look at the <a href="https://github.com/seanmonstar/reqwest/releases/tag/v0.10.0">changelog</a> for all the details.</p>
+</article>
+
+
+      <nav class="pagination">
+        
+        
+      </nav>
+
+      
+      <footer role="contentinfo">
+        <hr />
+        
+        
+        <small>Built with <a href="https://www.getzola.org/">Zola</a>.<br />
+          Maintained with &hearts; for the web.<br />
+          
+        </small>
+        
+      </footer>
+      
+
+    </main>
+    
+    
+  </body>
+</html>
+
