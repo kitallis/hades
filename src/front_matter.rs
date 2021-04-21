@@ -1,6 +1,5 @@
-use chrono::{DateTime, FixedOffset, Utc};
+use chrono::{DateTime, FixedOffset};
 use serde::Serialize;
-use url::Url;
 
 #[derive(Debug, PartialEq, Serialize)]
 pub struct FrontMatter {

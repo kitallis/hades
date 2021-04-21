@@ -1,7 +1,7 @@
 use crate::config::{Author, Setting};
 use crate::file::write;
 use crate::front_matter::FrontMatter;
-use chrono::{Date, DateTime, FixedOffset};
+use chrono::{DateTime, FixedOffset};
 use nanoid::nanoid;
 use rss::Item;
 use slug::slugify;
